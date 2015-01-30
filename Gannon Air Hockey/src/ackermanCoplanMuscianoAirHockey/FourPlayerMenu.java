@@ -1,9 +1,12 @@
 package ackermanCoplanMuscianoAirHockey;
 
 import java.awt.Font;
+
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridLayout;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -19,6 +22,8 @@ public class FourPlayerMenu {
 	private boolean buttonClicked = false;
 	private char button = '-';
 	private String[] IPs;
+	private FourPersonServer server;
+	private FourPersonClient client;
 	
 	public FourPlayerMenu(){
 		
@@ -75,6 +80,29 @@ public class FourPlayerMenu {
 		public void actionPerformed(ActionEvent e){
 			
 			if(e.getSource().equals(host)){
+				
+				String yourName = JOptionPane.showInputDialog(null, "Enter your name:", "Name", JOptionPane.QUESTION_MESSAGE);
+				server = new FourPersonServer(yourName);
+				
+				frame.setTitle("Connecting...");
+				host.setText("Connecting...");
+				join.setText("Searching for opponents...");
+				join.setFont(new Font("High Tower Text", Font.PLAIN, 44));
+				host.setEnabled(false);
+				join.setEnabled(false);
+				frame.update(frame.getGraphics());
+				
+				//needs to accept all four clients
+				
+				frame.setTitle("Connected!");
+				host.setText("Opponent Found!");
+				join.setText("Opponent Name: " + server.getOpponentName());
+				frame.update(frame.getGraphics());
+				
+				//wait 5 seconds so you can see all opponent names
+				try{
+					Thread.sleep(5000);
+				}catch(InterruptedException interrupted){}
 				
 				frame.setVisible(false);
 				buttonClicked = true;
