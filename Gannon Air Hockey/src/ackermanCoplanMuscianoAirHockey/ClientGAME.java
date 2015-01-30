@@ -1,11 +1,20 @@
 package ackermanCoplanMuscianoAirHockey; //COMMENTED
 
-import java.awt.*;
-
-import javax.swing.*;
-
-import java.awt.event.*;
-import java.awt.image.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Cursor;
+import java.awt.Robot;
+import java.awt.AWTException;
+import java.awt.image.BufferedImage;
+import java.awt.Toolkit;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseEvent;
+import java.awt.Point;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Dimension;
+import javax.swing.JOptionPane;
 
 public class ClientGAME {
 
@@ -34,7 +43,9 @@ public class ClientGAME {
 		try{
 			this.robot = new Robot();
 		}catch(AWTException e){
-			System.out.println("Could not instantiate robot...");
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Could not instantiate robot!", "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
 		
 		//basic JFrame properties
@@ -72,13 +83,13 @@ public class ClientGAME {
 		userGoal = new JLabel();
 		userGoal.setOpaque(true);
 		userGoal.setBackground(Color.red);
-		userGoal.setBounds(172, 522, 100, 50);
+		userGoal.setBounds(147, 522, 150, 50);
 
 		//sets up the opponent goal (needs a png)
 		opponentGoal = new JLabel();
 		opponentGoal.setOpaque(true);
 		opponentGoal.setBackground(Color.blue);
-		opponentGoal.setBounds(172, 0, 100, 50);
+		opponentGoal.setBounds(147, 0, 150, 50);
 
 		//sets up the user score including the user's name
 		userScore = new JLabel(client.getOpponentName() + ": " + yourNumGoals, JLabel.CENTER);
@@ -148,20 +159,22 @@ public class ClientGAME {
 		while(yourNumGoals < 7 && oppNumGoals < 7){
 
 			//client sends your paddle locations
-			try{
+			try{ //maybe remove this try catch and surround the run loop with a try catch for SocketException e
 				client.send(yourPaddleX + " " + yourPaddleY);
 			}catch(Exception e){
-				System.out.println("ERROR WITH PRINTWRITER!");
 				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Error with Print Writer!", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 
 			//client gets puck and user paddle locations in String form 
 			String input = null;
-			try{
+			try{ //see comment by above try-catch
 				input = client.readPositions();
 			}catch(Exception e){
-				System.out.println("ERROR WITH BUFFERED READER!");
 				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Error with Buffered Reader!", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 			
 			if(input.equals("User Goal")){ //if the client reads in that it's a user goal, call the goal method with the parameter of opponent goal

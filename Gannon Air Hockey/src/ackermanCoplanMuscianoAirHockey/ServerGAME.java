@@ -1,11 +1,20 @@
 package ackermanCoplanMuscianoAirHockey; //NEEDS COMMENTED
 
-import java.awt.*;
-
-import javax.swing.*;
-
-import java.awt.event.*;
-import java.awt.image.*;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseEvent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Point;
+import java.awt.Font;
+import java.awt.Robot;
+import java.awt.Cursor;
+import java.awt.AWTException;
+import java.awt.image.BufferedImage;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.JOptionPane;
 
 //true width is 444, true height is 572
 public class ServerGAME {
@@ -74,12 +83,12 @@ public class ServerGAME {
 		userGoal = new JLabel();
 		userGoal.setOpaque(true);
 		userGoal.setBackground(Color.red);
-		userGoal.setBounds(172, 522, 100, 50);
+		userGoal.setBounds(147, 522, 150, 50);
 		
 		opponentGoal = new JLabel();
 		opponentGoal.setOpaque(true);
 		opponentGoal.setBackground(Color.blue);
-		opponentGoal.setBounds(172, 0, 100, 50);
+		opponentGoal.setBounds(147, 0, 150, 50);
 		
 		userScore = new JLabel(server.getYourName() + ": " + yourNumGoals, JLabel.CENTER);
 		userScore.setOpaque(true);
@@ -123,7 +132,7 @@ public class ServerGAME {
 	
 	public void setMousePosition(){
 		
-		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();//getBounds?
 		int x = ((int)dimension.getWidth() / 2);
 		int y = ((int)dimension.getHeight() / 2) + 186 - userPaddle.getRadius();
 		
@@ -148,8 +157,9 @@ public class ServerGAME {
 				try{
 					server.send(puckX + " " + puckY + " " + userPaddleX + " " + userPaddleY);
 				}catch(Exception e){
-					System.out.println("ERROR WITH PRINT WRITER!");
 					e.printStackTrace();
+					JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Error with Print Writer!", "ERROR", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 			
@@ -192,7 +202,7 @@ public class ServerGAME {
 	
 	public void friction(){
 		
-		puckSpeed /= 1.0049;
+		puckSpeed /= 1.0045;
 	}
 	
 	public void goal(JLabel goal){
@@ -233,7 +243,7 @@ public class ServerGAME {
 	public boolean checkIfUserGoal(){
 		
 		if(puck.getY() <= 50){
-			if((puck.getCX() - puck.getRadius()) >= 172 && (puck.getCX() + puck.getRadius()) <= 272){
+			if((puck.getCX() - puck.getRadius()) >= 147 && (puck.getCX() + puck.getRadius()) <= 297){
 				return true;
 			}
 		}
@@ -244,7 +254,7 @@ public class ServerGAME {
 	public boolean checkIfOpponentGoal(){
 		
 		if((puck.getY() + puck.getDiameter()) >= 521){
-			if((puck.getCX() - puck.getRadius()) >= 172 && (puck.getCX() + puck.getRadius() <= 272)){
+			if((puck.getCX() - puck.getRadius()) >= 147 && (puck.getCX() + puck.getRadius() <= 297)){
 				return true;
 			}
 		}
@@ -273,7 +283,7 @@ public class ServerGAME {
 			puckDIRY = (puck.getCY() - userPaddle.getCY()) / (Math.sqrt(((puck.getCX() - userPaddle.getCX()) * (puck.getCX() - userPaddle.getCX())) + ((puck.getCY() - userPaddle.getCY()) * (puck.getCY() - userPaddle.getCY()))));
 			if(userPaddleSpeed < 5){
 				puckSpeed += userPaddleSpeed;
-			}else if(userPaddleSpeed <= 15){
+			}else if(userPaddleSpeed <= 15){//could change 15
 				puckSpeed = userPaddleSpeed;
 			}else{
 				puckSpeed = 15;

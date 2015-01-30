@@ -1,7 +1,15 @@
 package ackermanCoplanMuscianoAirHockey; //COMMENTED
 
-import java.io.*;
-import java.net.*;
+import java.net.Socket;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.net.SocketAddress;
+import java.net.InetSocketAddress;
+import java.io.InputStreamReader;
+import java.net.ConnectException;
+import java.io.IOException;
+
+import javax.swing.JOptionPane;
 
 public class Client {
 
@@ -67,7 +75,8 @@ public class Client {
 			return br.readLine();
 		}catch(IOException e){
 			e.printStackTrace();
-			System.out.println("Error with Buffered Reader.");
+			JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Error with Buffered Reader!", "ERROR", JOptionPane.ERROR_MESSAGE);
 			return null;
 		}
 	}

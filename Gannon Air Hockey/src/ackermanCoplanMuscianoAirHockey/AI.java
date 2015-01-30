@@ -1,9 +1,10 @@
 package ackermanCoplanMuscianoAirHockey; //COMMENTED
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Point;
 
-public class AI {
+public class AI { //WE NEED TO TEACH THE COMPUTER HOW TO BEAT SUPER DEFENSIVE PEOPLE
 
 	//instance variables -- mostly used for calculations of predicting puck contact point
 	private final double friction = 1.0045;
@@ -27,7 +28,7 @@ public class AI {
 				attackmark.setText("BLOCKING");
 				attackmark.setBackground(Color.cyan);
 				block(computerPaddle, puck);
-			}else if(puck.getCY() <= 200){ //puck is going slow enough and is in range so computer calculates location then activates attacking mode
+			}else if(puck.getCY() <= 200){ //puck is going slow enough and is in attacking zone(200) so computer calculates location then activates attacking mode
 				attackmark.setText("ATTACKING");
 				attackmark.setBackground(Color.orange);
 				calculate(computerPaddle, puck, puckDIRX, puckDIRY, puckSpeed); //calculates striking point 
@@ -84,7 +85,7 @@ public class AI {
 		posx = puck.getCX();
 		posy = puck.getCY();
 		
-		//calculates future puck position fifteen updates from now, taking into account friciton
+		//calculates future puck position fifteen updates from now, taking into account friction
 		for(int x = 0; x < 15; x++){
 			
 			posx += (puckSpeed*puckDIRX)/friction;

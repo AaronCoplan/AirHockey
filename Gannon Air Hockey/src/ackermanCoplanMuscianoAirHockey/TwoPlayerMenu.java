@@ -1,10 +1,13 @@
 package ackermanCoplanMuscianoAirHockey; //COMMENTED
 
-import java.awt.*;
-
-import javax.swing.*;
-
-import java.awt.event.*;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import java.awt.GridLayout;
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TwoPlayerMenu {
 
@@ -13,10 +16,10 @@ public class TwoPlayerMenu {
 	private JButton host, join;
 	private String[] IPs;
 	private Font f;
-	public boolean buttonClicked = false;
-	public char button = '-';
-	public Server server;
-	public Client client;
+	private boolean buttonClicked = false;
+	private char button = '-';
+	private Server server;
+	private Client client;
 	
 	public TwoPlayerMenu(){
 		
@@ -31,23 +34,21 @@ public class TwoPlayerMenu {
 		AL actionListener = new AL();
 		
 		//sets up basic JFrame properties
-		menuFrame = new JFrame("Loading...");
+		menuFrame = new JFrame("Menu");
 		menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		menuFrame.setResizable(false);
 		menuFrame.setLayout(new GridLayout(2, 0));
 		
 		//instantiates the host button with necessary properties
-		host = new JButton("Loading...");
+		host = new JButton("Host Game");
 		host.setBackground(Color.cyan);
 		host.setFont(f);
-		host.setEnabled(false);
 		host.addActionListener(actionListener); //adds the action listener
 		
 		//instantiates the join button with necessary properties
-		join = new JButton("Please Wait");
+		join = new JButton("Join Game");
 		join.setBackground(Color.pink);
 		join.setFont(f);
-		join.setEnabled(false);
 		join.addActionListener(actionListener); //adds the action listener
 		
 		//adds the components, sets the size and location, and displays the JFrame
@@ -56,14 +57,6 @@ public class TwoPlayerMenu {
 		menuFrame.setSize(600, 400);
 		menuFrame.setLocationRelativeTo(null);
 		menuFrame.setVisible(true);
-		
-		
-		//once the pinger is done, the frame components are set to normal text and set enabled
-		menuFrame.setTitle("Menu");
-		host.setText("Host Game");
-		host.setEnabled(true);
-		join.setText("Join Game");
-		join.setEnabled(true);
 		
 		//the String[] of IPs is obtained from the finished configurer class
 		this.IPs = configurer.getIPs();

@@ -1,9 +1,12 @@
-package ackermanCoplanMuscianoAirHockey; //NEEDS COMMENTED
+package ackermanCoplanMuscianoAirHockey; //NEEDS COMMENTED BUT CURRENTLY NOT IN USE
 
-import java.io.*;
-import java.awt.*;
-import java.util.*;
-import javax.swing.*;
+import java.io.File;
+import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
 
 public class Playback {
 
