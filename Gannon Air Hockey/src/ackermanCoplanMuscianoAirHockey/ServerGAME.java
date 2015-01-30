@@ -37,6 +37,9 @@ public class ServerGAME {
 	private Robot robot;
 	private Server server;
 	
+	private final double FRICTION = 1.0045, ENERGY_TRANSFER = 1.00023;
+	private final int PADDLE_DIAMETER = 50;
+	
 	public ServerGAME(Server server){
 		
 		this.server = server;
@@ -73,12 +76,12 @@ public class ServerGAME {
 		userPaddle = new Paddle();
 		ImageIcon userPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/redPaddle.png"));
 		userPaddle.setIcon(userPaddleIcon);
-		userPaddle.setBounds(222-userPaddle.getRadius(), 286+200-userPaddle.getRadius(), 50 ,50);
+		userPaddle.setBounds(222-userPaddle.getRadius(), 286+200-userPaddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
 		
 		opponentPaddle = new Paddle();
 		ImageIcon opponentPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/bluePaddle.png"));
 		opponentPaddle.setIcon(opponentPaddleIcon);
-		opponentPaddle.setBounds(222-opponentPaddle.getRadius(), 286-200-opponentPaddle.getRadius(), 50, 50);
+		opponentPaddle.setBounds(222-opponentPaddle.getRadius(), 286-200-opponentPaddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
 		
 		userGoal = new JLabel();
 		userGoal.setOpaque(true);
@@ -176,8 +179,8 @@ public class ServerGAME {
 			wallCollision();
 			
 			puck.setBounds(puckX, puckY, 30, 30);
-			userPaddle.setBounds(userPaddleX, userPaddleY, 50, 50);
-			opponentPaddle.setBounds(opponentPaddleX, opponentPaddleY, 50, 50);
+			userPaddle.setBounds(userPaddleX, userPaddleY, PADDLE_DIAMETER, PADDLE_DIAMETER);
+			opponentPaddle.setBounds(opponentPaddleX, opponentPaddleY, PADDLE_DIAMETER, PADDLE_DIAMETER);
 			
 			friction();
 			
@@ -195,14 +198,14 @@ public class ServerGAME {
 		int opponentPaddleCY = opponentPaddleY + opponentPaddle.getRadius();
 		Point currentPoint = new Point(opponentPaddleCX, opponentPaddleCY);
 		
-		opponentPaddleSpeed = (int)((currentPoint.distance(opponentPreviousPoint)) / 1.00023);
+		opponentPaddleSpeed = (int)((currentPoint.distance(opponentPreviousPoint)) / ENERGY_TRANSFER);
 		opponentPreviousPoint = currentPoint;
 		
 	}
 	
 	public void friction(){
 		
-		puckSpeed /= 1.0045;
+		puckSpeed /= FRICTION;
 	}
 	
 	public void goal(JLabel goal){
@@ -377,7 +380,7 @@ public class ServerGAME {
 				frame.setCursor(cursor);
 			}
 			
-			userPaddleSpeed = (int)((e.getPoint().distance(userPreviousPoint)) / 1.00023);
+			userPaddleSpeed = (int)((e.getPoint().distance(userPreviousPoint)) / ENERGY_TRANSFER);
 			
 			userPreviousPoint = e.getPoint();
 		}

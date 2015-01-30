@@ -83,6 +83,23 @@ public class Driver {
 	public static void fourPlayer(){
 		
 		FourPlayerMenu fourPlayerMenu = new FourPlayerMenu();
+		
+		while(!fourPlayerMenu.isButtonClicked()){
+			try{
+				Thread.sleep(100);
+			}catch(InterruptedException e){}
+		}
+		
+		switch(fourPlayerMenu.getButton())
+		{
+		case 'h': JOptionPane.showMessageDialog(null, "Host");
+		break;
+		case 'j': JOptionPane.showMessageDialog(null, "Join");
+		break;
+		default: JOptionPane.showMessageDialog(null, "Error with four-player menu!", "ERROR", JOptionPane.ERROR_MESSAGE);
+		break;
+		}
+		
 		System.exit(0);
 	}
 }
