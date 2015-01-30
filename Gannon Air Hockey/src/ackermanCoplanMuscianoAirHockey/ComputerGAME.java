@@ -95,13 +95,13 @@ public class ComputerGAME {
 		userGoal = new JLabel();
 		userGoal.setOpaque(true);
 		userGoal.setBackground(Color.red);
-		userGoal.setBounds(147, 522, 150, 50);
+		userGoal.setBounds(157, 522, 130, 50);
 		
 		//sets up the opponent goal in the proper location
 		opponentGoal = new JLabel();
 		opponentGoal.setOpaque(true);
 		opponentGoal.setBackground(Color.blue);
-		opponentGoal.setBounds(147, 0, 150, 50);
+		opponentGoal.setBounds(157, 0, 130, 50);
 		
 		//sets up the JLabel to represent your score
 		userScore = new JLabel("You: " + yourNumGoals, JLabel.CENTER);
@@ -271,7 +271,7 @@ public class ComputerGAME {
 		
 		//if the y is less than 50 and the puck x is completely within the goal posts, return true
 		if(puck.getY() <= 50){
-			if((puck.getCX() - puck.getRadius()) >= 147 && (puck.getCX() + puck.getRadius()) <= 297){
+			if((puck.getCX() - puck.getRadius()) >= 157 && (puck.getCX() + puck.getRadius()) <= 287){
 				return true;
 			}
 		}
@@ -283,7 +283,7 @@ public class ComputerGAME {
 		
 		//if the y is greater than 521 and the puck x is within the goal posts, return true
 		if((puck.getY() + puck.getDiameter()) >= 521){
-			if((puck.getCX() - puck.getRadius()) >= 147 && (puck.getCX() + puck.getRadius() <= 297)){
+			if((puck.getCX() - puck.getRadius()) >= 157 && (puck.getCX() + puck.getRadius() <= 287)){
 				return true;
 			}
 		}
