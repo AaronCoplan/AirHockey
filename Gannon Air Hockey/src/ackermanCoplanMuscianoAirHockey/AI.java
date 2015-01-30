@@ -11,7 +11,7 @@ public class AI { //WE NEED TO TEACH THE COMPUTER HOW TO BEAT SUPER DEFENSIVE PE
 	private final int paddleSTARTY = 286-200-25+10;
 	private double distance, dirx, diry, speed;
 	private int difficulty, count;
-	private double posx, posy;
+	private double posx, posy, xc, yc;
 	private boolean fastStrike = false; //controls how fast the computer hits the puck
 	private boolean attacking = false; //this boolean represents whether or not attack mode has been activated
 	
@@ -84,14 +84,42 @@ public class AI { //WE NEED TO TEACH THE COMPUTER HOW TO BEAT SUPER DEFENSIVE PE
 		//grabs current puck position
 		posx = puck.getCX();
 		posy = puck.getCY();
+		xc = posx - puck.getRadius();
+		yc = posy - puck.getRadius();
 		
 		//calculates future puck position fifteen updates from now, taking into account friction
 		for(int x = 0; x < 15; x++){
 			
+			
+			
 			posx += (puckSpeed*puckDIRX)/friction;
 			posy += (puckSpeed*puckDIRY)/friction;
 			
+			
 			puckSpeed/=friction;
+		}
+		double difference;
+		if(posx+puck.getRadius()>394)
+		{
+			difference = Math.abs(posx - 394);
+			posx -= 2*difference;
+			
+		}
+		else if(posx-puck.getRadius()<50)
+		{
+			difference = Math.abs(posx - 50);
+			posx += 2*difference;
+		}
+		
+		if(posy+puck.getRadius()>522)
+		{
+			difference = Math.abs(posy - 522);
+			posy -= 2*difference;
+		}
+		else if(posy-puck.getRadius()<50)
+		{
+			difference = Math.abs(posy - 50);
+			posy += 2*difference;
 		}
 		
 		//calculates distance it needs to travel and average vector speed necessary to reach that spot.
