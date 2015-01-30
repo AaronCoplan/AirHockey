@@ -33,6 +33,7 @@ public class Driver {
 		 * Done--Set all catch statements to JOptionPanes
 		 * Done--make the goals bigger
 		 * 
+		 * Need to give people option to pick their color of paddle and goal
 		 * Colors do not show up on mac...(try using RGB values for colors)
 		 * Scores are messed up on mac...
 		 * Robot doesn't work on mac...
