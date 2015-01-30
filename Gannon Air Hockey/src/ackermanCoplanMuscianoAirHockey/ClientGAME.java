@@ -83,13 +83,13 @@ public class ClientGAME {
 		userGoal = new JLabel();
 		userGoal.setOpaque(true);
 		userGoal.setBackground(Color.red);
-		userGoal.setBounds(147, 522, 150, 50);
+		userGoal.setBounds(157, 522, 130, 50);
 
 		//sets up the opponent goal (needs a png)
 		opponentGoal = new JLabel();
 		opponentGoal.setOpaque(true);
 		opponentGoal.setBackground(Color.blue);
-		opponentGoal.setBounds(147, 0, 150, 50);
+		opponentGoal.setBounds(157, 0, 130, 50);
 
 		//sets up the user score including the user's name
 		userScore = new JLabel(client.getOpponentName() + ": " + yourNumGoals, JLabel.CENTER);
