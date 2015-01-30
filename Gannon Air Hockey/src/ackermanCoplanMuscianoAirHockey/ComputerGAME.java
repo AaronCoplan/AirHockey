@@ -39,6 +39,9 @@ public class ComputerGAME {
 	private AI ai; //AI to control the computer's paddle
 	private Robot robot; //robot to move your mouse back to the reset position at the start and after a goal
 	
+	private final double FRICTION = 1.0045, ENERGY_TRANSFER = 1.00023;
+	private final int PADDLE_DIAMETER = 50;
+	
 	public ComputerGAME(){
 		
 		ai = new AI(4); //creates a new AI with the difficulty parameter
@@ -83,13 +86,13 @@ public class ComputerGAME {
 		userPaddle = new Paddle();
 		ImageIcon userPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/redPaddle.png"));
 		userPaddle.setIcon(userPaddleIcon);
-		userPaddle.setBounds(222-userPaddle.getRadius(), 286+200-userPaddle.getRadius(), 50 ,50);
+		userPaddle.setBounds(222-userPaddle.getRadius(), 286+200-userPaddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
 		
 		//sets up the computer's paddle with its image png
 		computerPaddle = new Paddle();
 		ImageIcon opponentPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/bluePaddle.png"));
 		computerPaddle.setIcon(opponentPaddleIcon);
-		computerPaddle.setBounds(222-computerPaddle.getRadius(), 286-200-computerPaddle.getRadius(), 50, 50);
+		computerPaddle.setBounds(222-computerPaddle.getRadius(), 286-200-computerPaddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
 		
 		//sets up the user goal in the proper location
 		userGoal = new JLabel();
@@ -214,7 +217,7 @@ public class ComputerGAME {
 		Point currentPoint = computerPaddle.getLocation(); //gets the current location of the computer paddle as a point
 		
 		//solves for the speed by dividing the distance between the paddle and its previous location by an arbitrarily determined factor
-		opponentPaddleSpeed = (int)((currentPoint.distance(opponentPreviousPoint)) / 1.00023); 
+		opponentPaddleSpeed = (int)((currentPoint.distance(opponentPreviousPoint)) / ENERGY_TRANSFER); 
 	
 		opponentPreviousPoint = currentPoint; //sets the previous point to the current point for next time's calculations
 		
@@ -222,7 +225,7 @@ public class ComputerGAME {
 	
 	public void friction(){
 		
-		puckSpeed /= 1.0045; //changes the puck speed by an arbitrarily determined factor 
+		puckSpeed /= FRICTION; //changes the puck speed by an arbitrarily determined factor 
 	}
 	
 	//method for what happens if someone scores
@@ -420,7 +423,7 @@ public class ComputerGAME {
 				frame.setCursor(cursor); //set the cursor to the normal cursor
 			}
 			
-			userPaddleSpeed = (int)((e.getPoint().distance(userPreviousPoint)) / 1.00023); //calculates the user paddle speed using the distance covered and the arbitrary speed factor
+			userPaddleSpeed = (int)((e.getPoint().distance(userPreviousPoint)) / ENERGY_TRANSFER); //calculates the user paddle speed using the distance covered and the arbitrary speed factor
 			
 			userPreviousPoint = e.getPoint(); //sets the user previous point to the current point for next time's calculation
 		}
