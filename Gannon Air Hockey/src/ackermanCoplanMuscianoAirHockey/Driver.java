@@ -27,24 +27,38 @@ public class Driver {
 		break;
 		}
 		
-		/*
-		 * Things to do:
-		 * 
+		/* DONE
 		 * Done--Set all catch statements to JOptionPanes
 		 * Done--make the goals bigger
-		 * 
-		 * Need to give people option to pick their color of paddle and goal
-		 * Colors do not show up on mac...(try using RGB values for colors)
-		 * Scores are messed up on mac...
-		 * Robot doesn't work on mac...
+		 * Done--teach the computer to account for the puck bouncing off of walls
+		 */
+		
+		/* FOUR PERSON AND MULTIPLAYER IN GENERAL
+		 * The entire four player game needs written -- a lot of code can be copied from the two person classes
 		 * Also need to catch socket exceptions for when opponent disconnects
-		 * need to change game over JOptionPane
+		 * We may have to make the server implement runnable cause you cannot close the window when hosting and waiting for a connection (or we could institute a timeout)
+		 */
+		
+		/* FEATURES TO ADD
+		 * Need to give people option to pick their color of paddle and goal
+		 * still need to do replay of last goal using recorder and playback classes (currently not implemented)
+		 */
+		
+		/* AI ISSUES
+		 * bound the computer to the game board
+		 */
+		
+		/* GAMEPLAY ISSUES
+		 * need to change JOptionPane that pops up after game ends
 		 * bound people to their half
 		 * Change the max speed of the puck (make it lower?)
-		 * bound the computer to the game board
-		 * teach the computer to account for the puck bouncing off of walls
-		 * still need to do replay of last goal using recorder and playback classes (currently not implemented)
-		 * we may have to make the server implement runnable cause you cannot close the window when hosting and waiting for a connection (or we could institute a timeout)
+		 */
+		
+		/* MAC PROBLEMS -- Most likely do not need addressed as our operating system is going to be Windows
+		 * Colors do not show up on mac...(try using RGB values for colors)
+		 * board is messed up on mac
+		 * Scores are messed up on mac...
+		 * Robot doesn't work on mac...
 		 */
 	}
 	
