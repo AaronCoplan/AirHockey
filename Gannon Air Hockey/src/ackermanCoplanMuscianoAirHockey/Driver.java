@@ -31,6 +31,7 @@ public class Driver {
 		 * Done--Set all catch statements to JOptionPanes
 		 * Done--make the goals bigger
 		 * Done--teach the computer to account for the puck bouncing off of walls
+		 * Done--bound people to their half
 		 */
 		
 		/* FOUR PERSON AND MULTIPLAYER IN GENERAL
@@ -46,12 +47,11 @@ public class Driver {
 		 */
 		
 		/* AI ISSUES
-		 * ACK--bound the computer to the game board
+		 * ACK--bound the computer to the game board and its own half
 		 */
 		
 		/* GAMEPLAY ISSUES
 		 * need to change JOptionPane that pops up after game ends
-		 * ACK--bound people to their half
 		 * ACK--Change the max speed of the puck (make it lower?)
 		 */
 	}
