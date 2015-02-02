@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
-public class Client {
+public class TwoPersonClient {
 
 	private Socket socket;
 	private BufferedReader br;
@@ -23,7 +23,7 @@ public class Client {
 	
 	//constructor that takes in list of ips to attempt to connect to
 	//also takes in your name so it can be passed to the opponent
-	public Client(String[] IPs, String yourName){
+	public TwoPersonClient(String[] IPs, String yourName){
 		this.IPs = IPs;
 		this.yourName = yourName;
 	}

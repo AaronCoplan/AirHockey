@@ -35,12 +35,12 @@ public class ServerGAME {
 	private Cursor blankCursor;
 	
 	private Robot robot;
-	private Server server;
+	private TwoPersonServer server;
 	
 	private final double FRICTION = 1.0045, ENERGY_TRANSFER = 1.00023;
 	private final int PADDLE_DIAMETER = 50;
 	
-	public ServerGAME(Server server){
+	public ServerGAME(TwoPersonServer server){
 		
 		this.server = server;
 		setUp();

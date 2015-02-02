@@ -29,9 +29,9 @@ public class ClientGAME {
 	private Cursor blankCursor;
 	
 	private Robot robot;
-	private Client client;
+	private TwoPersonClient client;
 
-	public ClientGAME(Client client){
+	public ClientGAME(TwoPersonClient client){
 
 		this.client = client;
 		setUp();

@@ -18,8 +18,8 @@ public class TwoPlayerMenu {
 	private Font f;
 	private boolean buttonClicked = false;
 	private char button = '-';
-	private Server server;
-	private Client client;
+	private TwoPersonServer server;
+	private TwoPersonClient client;
 	
 	public TwoPlayerMenu(){
 		
@@ -66,8 +66,8 @@ public class TwoPlayerMenu {
 	
 	public boolean isButtonClicked(){return buttonClicked;}
 	public char getButton(){return button;}
-	public Server getServer(){return this.server;}
-	public Client getClient(){return this.client;}
+	public TwoPersonServer getServer(){return this.server;}
+	public TwoPersonClient getClient(){return this.client;}
 	
 	public void startIPConfiguration(){
 		//instantiates the pinger then generates the necessary ips
@@ -84,7 +84,7 @@ public class TwoPlayerMenu {
 				
 				//gets your name using joptionpane and passes it into the server
 				String yourName = JOptionPane.showInputDialog(null, "Enter your name:", "Name", JOptionPane.QUESTION_MESSAGE);
-				server = new Server(yourName);
+				server = new TwoPersonServer(yourName);
 				
 				//change to connecting screen
 				menuFrame.setTitle("Connecting...");
@@ -118,7 +118,7 @@ public class TwoPlayerMenu {
 				
 				//gets your name using JOptionPane and passes it into the client
 				String yourName = JOptionPane.showInputDialog(null, "Enter your name:", "Name", JOptionPane.QUESTION_MESSAGE);
-				client = new Client(IPs, yourName);
+				client = new TwoPersonClient(IPs, yourName);
 				
 				//change to connecting screen
 				menuFrame.setTitle("Connecting...");

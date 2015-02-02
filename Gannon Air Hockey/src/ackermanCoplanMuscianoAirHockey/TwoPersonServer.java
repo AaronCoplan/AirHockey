@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
-public class Server {
+public class TwoPersonServer {
 
 	private ServerSocket ss;
 	private Socket clientSocket;
@@ -17,7 +17,7 @@ public class Server {
 	private String yourName, opponentName;
 	
 	//constructor that takes in your name so it can be passed to the opponent
-	public Server(String yourName){
+	public TwoPersonServer(String yourName){
 		this.yourName = yourName;
 	}
 	
