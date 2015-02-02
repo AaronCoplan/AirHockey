@@ -38,14 +38,14 @@ public class ComputerGAME {
 	
 	private AI ai; //AI to control the computer's paddle
 	private Robot robot; //robot to move your mouse back to the reset position at the start and after a goal
-	private Recorder recorder;
+	//private Recorder recorder;
 	
 	private final double FRICTION = 1.0045, ENERGY_TRANSFER = 1.00023;
 	private final int PADDLE_DIAMETER = 50;
 	
 	public ComputerGAME(){
 		
-		recorder = new Recorder("U:\\GAME.txt");
+		//recorder = new Recorder("U:\\GAME.txt");
 		ai = new AI(4); //creates a new AI with the difficulty parameter
 		setUp(); //calls the setUp method, which creates and fills the JFrame with its visual components
 	}
@@ -202,7 +202,7 @@ public class ComputerGAME {
 			friction(); //calls the friction method to act on the puck speed variable
 			
 			//optional to record game:
-			recorder.record(puckX, puckY, userPaddleX, userPaddleY, computerPaddle.getX(), computerPaddle.getY());
+			//recorder.record(puckX, puckY, userPaddleX, userPaddleY, computerPaddle.getX(), computerPaddle.getY());
 			
 			//Thread.sleep regulates game speed (100 updates / second)
 			try{
