@@ -92,12 +92,7 @@ public class FourPlayerMenu {
 				join.setEnabled(false);
 				frame.update(frame.getGraphics());
 				
-				//needs to accept all four clients
-				
-				frame.setTitle("Connected!");
-				host.setText("Opponent Found!");
-				join.setText("Opponent Name: " + server.getOpponentName());
-				frame.update(frame.getGraphics());
+				//needs to accept all four clients and update the frame
 				
 				//wait 5 seconds so you can see all opponent names
 				try{
