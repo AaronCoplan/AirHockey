@@ -34,31 +34,24 @@ public class Driver {
 		 */
 		
 		/* FOUR PERSON AND MULTIPLAYER IN GENERAL
-		 * The entire four player game needs written -- a lot of code can be copied from the two person classes
-		 * Also need to catch socket exceptions for when opponent disconnects
-		 * We may have to make the server implement runnable cause you cannot close the window when hosting and waiting for a connection (or we could institute a timeout)
+		 * AARON--The entire four player game needs written -- a lot of code can be copied from the two person classes
+		 * AARON--Also need to catch socket exceptions for when opponent disconnects
+		 * AARON--We may have to make the server implement runnable cause you cannot close the window when hosting and waiting for a connection (or we could institute a timeout)
 		 */
 		
 		/* FEATURES TO ADD
 		 * Need to give people option to pick their color of paddle and goal
-		 * still need to do replay of last goal using recorder and playback classes (currently not implemented)
+		 * ACK--still need to do replay of last goal using recorder and playback classes (currently not implemented)
 		 */
 		
 		/* AI ISSUES
-		 * bound the computer to the game board
+		 * ACK--bound the computer to the game board
 		 */
 		
 		/* GAMEPLAY ISSUES
 		 * need to change JOptionPane that pops up after game ends
-		 * bound people to their half
-		 * Change the max speed of the puck (make it lower?)
-		 */
-		
-		/* MAC PROBLEMS -- Most likely do not need addressed as our operating system is going to be Windows
-		 * Colors do not show up on mac...(try using RGB values for colors)
-		 * board is messed up on mac
-		 * Scores are messed up on mac...
-		 * Robot doesn't work on mac...
+		 * ACK--bound people to their half
+		 * ACK--Change the max speed of the puck (make it lower?)
 		 */
 	}
 	

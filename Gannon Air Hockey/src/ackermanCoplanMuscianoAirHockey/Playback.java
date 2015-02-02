@@ -18,7 +18,7 @@ public class Playback {
 		
 		Playback playback = new Playback();
 		
-		File file = new File("C:\\Users\\Coplans5\\Desktop\\GAME.txt");
+		File file = new File("U:\\GAME.txt");
 		Scanner sc = new Scanner(file);
 		playback.setUp();
 		
