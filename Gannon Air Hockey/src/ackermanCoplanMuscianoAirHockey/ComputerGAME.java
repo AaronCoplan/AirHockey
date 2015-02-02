@@ -416,7 +416,7 @@ public class ComputerGAME {
 			int mouseY = e.getPoint().y;
 			
 			//if else bounds the paddle to the game board
-			if((mouseX - userPaddle.getRadius()) >= 50 && (mouseX + userPaddle.getRadius()) <= 394 && (mouseY - userPaddle.getDiameter()) >= 50 && (mouseY) <= 522){ //if its inside the bounds
+			if((mouseX - userPaddle.getRadius()) >= 50 && (mouseX + userPaddle.getRadius()) <= 394 && (mouseY - userPaddle.getDiameter()) >= 50 && (mouseY) >= 322){ //if its inside the bounds
 				frame.setCursor(blankCursor); //set the cursor invisible
 				userPaddleX = mouseX - userPaddle.getRadius(); //set the user paddle's center x coordinate to the mouse's x location
 				userPaddleY = mouseY - userPaddle.getDiameter(); //set the user paddle's center y coordinate to the mouse's y location
