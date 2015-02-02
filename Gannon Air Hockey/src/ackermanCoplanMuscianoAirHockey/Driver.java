@@ -42,6 +42,7 @@ public class Driver {
 		/* FEATURES TO ADD
 		 * Need to give people option to pick their color of paddle and goal
 		 * ACK--still need to do replay of last goal using recorder and playback classes (currently not implemented)
+		 * ACK--draw a midline
 		 */
 		
 		/* AI ISSUES
