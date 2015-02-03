@@ -102,6 +102,11 @@ public class Driver {
 		switch(fourPlayerMenu.getButton())
 		{
 		case 'h': JOptionPane.showMessageDialog(null, "Server Game");
+		FourPersonClient l = fourPlayerMenu.getClient();
+		boolean b = true;
+		while(b){
+			l.readLine();
+		}
 		break;
 		case 'j': JOptionPane.showMessageDialog(null, "Client Game");
 		break;

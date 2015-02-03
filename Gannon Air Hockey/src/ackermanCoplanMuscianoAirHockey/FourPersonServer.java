@@ -78,4 +78,10 @@ public class FourPersonServer {
 	public String getOpponent1Name(){return name1;}
 	public String getOpponent2Name(){return name2;}
 	public String getOpponent3Name(){return name3;}
+	
+	public void flush(){
+		pw1.flush();
+		pw2.flush();
+		pw3.flush();
+	}
 }

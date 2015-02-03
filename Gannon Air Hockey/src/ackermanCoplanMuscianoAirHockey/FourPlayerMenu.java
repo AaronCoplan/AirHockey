@@ -75,6 +75,8 @@ public class FourPlayerMenu {
 	
 	public boolean isButtonClicked(){return buttonClicked;}
 	public char getButton(){return button;}
+	public FourPersonClient getClient(){return client;}
+	public FourPersonServer getServer(){return server;}
 	
 	public void startIPConfiguration(){
 		//instantiates the pinger then generates the necessary ips
@@ -120,6 +122,8 @@ public class FourPlayerMenu {
 					Thread.sleep(5000);
 				}catch(InterruptedException interrupted){}
 				
+				server.flush();
+				
 				frame.setVisible(false);
 				buttonClicked = true;
 				button = 'h';
@@ -153,6 +157,8 @@ public class FourPlayerMenu {
 				try{
 					Thread.sleep(5000);
 				}catch(InterruptedException interrupted){}
+				
+				client.flush();
 				
 				frame.setVisible(false);
 				buttonClicked = true;

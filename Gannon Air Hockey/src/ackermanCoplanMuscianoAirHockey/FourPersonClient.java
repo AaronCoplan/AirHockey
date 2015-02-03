@@ -52,7 +52,6 @@ public class FourPersonClient {
 			}catch(IOException e){
 				System.out.println("Could not connect to: " + IPs[x]);
 			}
-
 		}
 	}
 	
@@ -84,6 +83,18 @@ public class FourPersonClient {
 	public String getOpponent3Name(){return name3;}
 
 	public boolean isConnected(){return this.connected;}
+	
+	public void flush(){
+		pw.flush();
+	}
+	
+	public void readLine(){
+		try{
+			System.out.println(br.readLine());
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+	}
 
 	//need send and read methods for four person
 }
