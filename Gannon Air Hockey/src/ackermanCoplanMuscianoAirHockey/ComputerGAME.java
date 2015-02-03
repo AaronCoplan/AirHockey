@@ -130,6 +130,8 @@ public class ComputerGAME {
 		ImageIcon boardIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/woodBack.png"));
 		board.setIcon(boardIcon);
 		
+		//Add a midline here
+		
 		//sets up the dark wood background for the walls with its image jpg 
 		JLabel walls = new JLabel();
 		walls.setBounds(0, 0, 444, 572);
