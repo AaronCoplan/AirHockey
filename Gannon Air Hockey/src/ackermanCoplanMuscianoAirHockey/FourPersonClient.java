@@ -64,10 +64,4 @@ public class FourPersonClient {
 	public boolean isConnected(){return this.connected;}
 
 	//need send and read methods for four person
-
-	public static void main(String[] args){
-
-		String[] ips = {"10.3.12.43"};
-		new FourPersonClient(ips, "Emily").connect();
-	}
 }

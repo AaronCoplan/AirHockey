@@ -125,6 +125,22 @@ public class FourPlayerMenu {
 				button = 'h';
 			}else if(e.getSource().equals(join)){
 				
+				String yourName = JOptionPane.showInputDialog(null, "Enter your name:", "Name", JOptionPane.QUESTION_MESSAGE);
+				client = new FourPersonClient(IPs, yourName);
+				
+				frame.setTitle("Connecting...");
+				host.setText("Joining...");
+				join.setText("Waiting for opponent...");
+				peopleConnected.setText("Waiting for opponent...");
+				peopleConnected2.setText("Waiting for opponent...");
+				host.setFont(f2);
+				join.setFont(f2);
+				host.setEnabled(false);
+				join.setEnabled(false);
+				frame.update(frame.getGraphics());
+				
+				client.connect();
+				
 				frame.setVisible(false);
 				buttonClicked = true;
 				button = 'j';
