@@ -50,6 +50,8 @@ public class FourPersonServer {
 			pw2.println(2);
 			pw2.println(hostName);
 			name2 = br2.readLine();
+			pw2.println(name1);
+			pw1.println(name2);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -63,6 +65,10 @@ public class FourPersonServer {
 			pw3.println(3);
 			pw3.println(hostName);
 			name3 = br3.readLine();
+			pw1.println(name3);
+			pw2.println(name3);
+			pw3.println(name2);
+			pw3.println(name3);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
