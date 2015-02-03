@@ -144,10 +144,10 @@ public class FourPlayerMenu {
 				join.setText(client.getHostName() + " connected!");
 				frame.update(frame.getGraphics());
 				
-				peopleConnected.setText(client.getOpponent2Name() + " connected!");
+				peopleConnected.setText(client.readOpponent2Name() + " connected!");
 				frame.update(frame.getGraphics());
 				
-				peopleConnected2.setText(client.getOpponent3Name() + " connected!");
+				peopleConnected2.setText(client.readOpponent3Name() + " connected!");
 				frame.update(frame.getGraphics());
 				
 				try{
