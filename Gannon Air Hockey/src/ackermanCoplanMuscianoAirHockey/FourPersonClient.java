@@ -57,8 +57,10 @@ public class FourPersonClient {
 	}
 	
 	public String readOpponent2Name(){
+		String input;
 		try{
-			this.name2 = br.readLine();
+			while((input = br.readLine()) == null){}
+			name2 = input;
 		}catch(IOException e){
 			e.printStackTrace();
 		}
@@ -66,8 +68,10 @@ public class FourPersonClient {
 	}
 	
 	public String readOpponent3Name(){
+		String input;
 		try{
-			this.name3 = br.readLine();
+			while((input = br.readLine()) == null){}
+			name3 = input;
 		}catch(IOException e){
 			e.printStackTrace();
 		}
