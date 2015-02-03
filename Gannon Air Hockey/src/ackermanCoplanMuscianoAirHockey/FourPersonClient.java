@@ -57,23 +57,23 @@ public class FourPersonClient {
 	}
 	
 	public String readOpponent2Name(){
-		String input;
-		try{
-			while((input = br.readLine()) == null){}
-			name2 = input;
-		}catch(IOException e){
-			e.printStackTrace();
+		while(name2 == null){
+			try{
+				name2 = br.readLine();
+			}catch(IOException e){
+				e.printStackTrace();
+			}
 		}
 		return name2;
 	}
 	
 	public String readOpponent3Name(){
-		String input;
-		try{
-			while((input = br.readLine()) == null){}
-			name3 = input;
-		}catch(IOException e){
-			e.printStackTrace();
+		while(name3 == null){
+			try{
+				name3 = br.readLine();
+			}catch(IOException e){
+				e.printStackTrace();
+			}
 		}
 		return name3;
 	}
