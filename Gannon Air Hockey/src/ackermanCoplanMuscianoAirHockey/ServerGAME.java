@@ -112,6 +112,13 @@ public class ServerGAME {
 		ImageIcon icon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/woodBack.png"));
 		back.setIcon(icon);
 		
+		//Add a midline here
+		//center y value is 236
+		JLabel midline = new JLabel();
+		midline.setOpaque(true);
+		midline.setBackground(Color.black);
+		midline.setBounds(50,276,344,20);
+		
 		JLabel walls = new JLabel();
 		walls.setBounds(0, 0, 444, 572);
 		ImageIcon wallsIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/border.jpg"));
@@ -126,6 +133,7 @@ public class ServerGAME {
 		frame.add(opponentScore);
 		frame.add(back);
 		frame.add(walls);
+		frame.add(midline);
 		frame.setSize(450, 600);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);

@@ -113,6 +113,13 @@ public class ClientGAME {
 		ImageIcon icon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/woodBack.png"));
 		back.setIcon(icon);
 		
+		//Add a midline here
+		//center y value is 236
+		JLabel midline = new JLabel();
+		midline.setOpaque(true);
+		midline.setBackground(Color.black);
+		midline.setBounds(50,276,344,20);
+		
 		//represents the darker wood walls using a png
 		JLabel walls = new JLabel();
 		walls.setBounds(0, 0, 444, 572);
@@ -128,6 +135,7 @@ public class ClientGAME {
 		frame.add(opponentPaddle);
 		frame.add(userGoal);
 		frame.add(opponentGoal);
+		frame.add(midline);
 		frame.add(back);
 		frame.add(walls);
 		frame.setSize(450, 600);

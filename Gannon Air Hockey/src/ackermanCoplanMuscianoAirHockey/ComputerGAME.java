@@ -131,6 +131,13 @@ public class ComputerGAME {
 		board.setIcon(boardIcon);
 		
 		//Add a midline here
+		//center y value is 236
+		JLabel midline = new JLabel();
+		midline.setOpaque(true);
+		midline.setBackground(Color.black);
+		midline.setBounds(50,276,344,20);
+		
+		
 		
 		//sets up the dark wood background for the walls with its image jpg 
 		JLabel walls = new JLabel();
@@ -152,6 +159,7 @@ public class ComputerGAME {
 		frame.add(userScore);
 		frame.add(opponentScore);
 		frame.add(attackmark);
+		frame.add(midline);
 		frame.add(board);
 		frame.add(walls);
 		frame.setSize(450, 600);
