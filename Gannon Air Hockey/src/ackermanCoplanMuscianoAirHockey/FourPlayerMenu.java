@@ -14,11 +14,11 @@ import java.awt.event.ActionEvent;
 
 public class FourPlayerMenu {
 
-	private Font f;
+	private Font f1, f2;
 	private IPConfigurer configurer;
 	private JFrame frame;
 	private JButton host, join;
-	private JLabel peopleConnected;
+	private JLabel peopleConnected, peopleConnected2;
 	private boolean buttonClicked = false;
 	private char button = '-';
 	private String[] IPs;
@@ -27,7 +27,8 @@ public class FourPlayerMenu {
 	
 	public FourPlayerMenu(){
 		
-		this.f = new Font("High Tower Text", Font.PLAIN, 66);
+		this.f1 = new Font("High Tower Text", Font.PLAIN, 66);
+		this.f2 = new Font("High Tower Text", Font.PLAIN, 33);
 		startIPConfiguration();
 		setUpMenu();
 	}
@@ -39,26 +40,32 @@ public class FourPlayerMenu {
 		frame = new JFrame("Menu");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
-		frame.setLayout(new GridLayout(3, 0));
+		frame.setLayout(new GridLayout(4, 0));
 		
 		host = new JButton("Host Game");
-		host.setFont(f);
+		host.setFont(f1);
 		host.setBackground(Color.cyan);
 		host.addActionListener(actionListener);
 		
 		join = new JButton("Join Game");
-		join.setFont(f);
+		join.setFont(f1);
 		join.setBackground(Color.pink);
 		join.addActionListener(actionListener);
 		
 		peopleConnected = new JLabel("Ignore this for now...", JLabel.CENTER);
-		peopleConnected.setFont(new Font("High Tower Text", Font.PLAIN, 33));
+		peopleConnected.setFont(f2);
 		peopleConnected.setOpaque(true);
 		peopleConnected.setBackground(Color.cyan);
+		
+		peopleConnected2 = new JLabel("Also ignore this for now...", JLabel.CENTER);
+		peopleConnected2.setFont(f2);
+		peopleConnected2.setOpaque(true);
+		peopleConnected2.setBackground(Color.pink);
 		
 		frame.add(host);
 		frame.add(join);
 		frame.add(peopleConnected);
+		frame.add(peopleConnected2);
 		frame.setSize(600, 400);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
@@ -83,16 +90,29 @@ public class FourPlayerMenu {
 				
 				String yourName = JOptionPane.showInputDialog(null, "Enter your name:", "Name", JOptionPane.QUESTION_MESSAGE);
 				server = new FourPersonServer(yourName);
+				server.startServer();
 				
-				frame.setTitle("Connecting...");
-				host.setText("Connecting...");
-				join.setText("Searching for opponents...");
-				join.setFont(new Font("High Tower Text", Font.PLAIN, 44));
+				host.setText("Hosting...");
+				join.setText("Waiting for opponent...");
+				peopleConnected.setText("Waiting for opponent...");
+				peopleConnected2.setText("Waiting for opponent...");
+				host.setFont(f2);
+				join.setFont(f2);
 				host.setEnabled(false);
 				join.setEnabled(false);
 				frame.update(frame.getGraphics());
 				
-				//needs to accept all four clients and update the frame
+				server.connect1();
+				join.setText(server.getOpponent1Name() + " connected!");
+				frame.update(frame.getGraphics());
+				
+				server.connect2();
+				peopleConnected.setText(server.getOpponent2Name() + " connected!");
+				frame.update(frame.getGraphics());
+				
+				server.connect3();
+				peopleConnected2.setText(server.getOpponent3Name() + " connected!");
+				frame.update(frame.getGraphics());
 				
 				//wait 5 seconds so you can see all opponent names
 				try{
