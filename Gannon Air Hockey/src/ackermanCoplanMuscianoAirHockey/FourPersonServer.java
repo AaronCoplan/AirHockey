@@ -74,7 +74,7 @@ public class FourPersonServer {
 		}
 	}
 	
-	public String getUserName(){return hostName;}
+	public String getHostName(){return hostName;}
 	public String getOpponent1Name(){return name1;}
 	public String getOpponent2Name(){return name2;}
 	public String getOpponent3Name(){return name3;}
