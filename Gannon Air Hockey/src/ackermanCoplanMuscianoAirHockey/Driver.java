@@ -41,7 +41,7 @@ public class Driver {
 		 */
 		
 		/* FEATURES TO ADD
-		 * Need to give people option to pick their color of paddle and goal
+		 * AARON--Need to give people option to pick their color of paddle and goal
 		 * ACK--still need to do replay of last goal using recorder and playback classes (currently not implemented)
 		 * ACK--draw a midline
 		 */
@@ -51,7 +51,7 @@ public class Driver {
 		 */
 		
 		/* GAMEPLAY ISSUES
-		 * need to change JOptionPane that pops up after game ends
+		 * AARON--need to change JOptionPane that pops up after game ends
 		 * ACK--Change the max speed of the puck (make it lower?)
 		 */
 	}
