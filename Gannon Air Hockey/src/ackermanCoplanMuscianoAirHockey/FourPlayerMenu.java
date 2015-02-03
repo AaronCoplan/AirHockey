@@ -92,6 +92,7 @@ public class FourPlayerMenu {
 				server = new FourPersonServer(yourName);
 				server.startServer();
 				
+				frame.setTitle("Connecting...");
 				host.setText("Hosting...");
 				join.setText("Waiting for opponent...");
 				peopleConnected.setText("Waiting for opponent...");
