@@ -87,14 +87,6 @@ public class FourPersonClient {
 	public void flush(){
 		pw.flush();
 	}
-	
-	public void readLine(){
-		try{
-			System.out.println(br.readLine());
-		}catch(IOException e){
-			e.printStackTrace();
-		}
-	}
 
 	//need send and read methods for four person
 }
