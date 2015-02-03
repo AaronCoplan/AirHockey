@@ -55,6 +55,24 @@ public class FourPersonClient {
 
 		}
 	}
+	
+	public String readOpponent2Name(){
+		try{
+			this.name2 = br.readLine();
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		return name2;
+	}
+	
+	public String readOpponent3Name(){
+		try{
+			this.name3 = br.readLine();
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		return name3;
+	}
 
 	public String getYourName(){return yourName;}
 	public String getHostName(){return hostName;}

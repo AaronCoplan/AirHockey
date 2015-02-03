@@ -141,6 +141,19 @@ public class FourPlayerMenu {
 				
 				client.connect();
 				
+				join.setText(client.getHostName() + " connected!");
+				frame.update(frame.getGraphics());
+				
+				peopleConnected.setText(client.getOpponent2Name() + " connected!");
+				frame.update(frame.getGraphics());
+				
+				peopleConnected2.setText(client.getOpponent3Name() + " connected!");
+				frame.update(frame.getGraphics());
+				
+				try{
+					Thread.sleep(5000);
+				}catch(InterruptedException interrupted){}
+				
 				frame.setVisible(false);
 				buttonClicked = true;
 				button = 'j';
