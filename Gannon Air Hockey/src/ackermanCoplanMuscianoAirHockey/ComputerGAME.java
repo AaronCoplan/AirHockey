@@ -142,7 +142,7 @@ public class ComputerGAME {
 		//sets up the dark wood background for the walls with its image jpg 
 		JLabel walls = new JLabel();
 		walls.setBounds(0, 0, 444, 572);
-		ImageIcon wallsIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/border.jpg"));
+		ImageIcon wallsIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/border2.jpg"));
 		walls.setIcon(wallsIcon);
 		
 		//adds the indicator in the upper right corner so you can see what the computer is doing(for testing purposes only)

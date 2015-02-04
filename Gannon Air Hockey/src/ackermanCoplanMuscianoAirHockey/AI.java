@@ -23,27 +23,29 @@ public class AI { //WE NEED TO TEACH THE COMPUTER HOW TO BEAT SUPER DEFENSIVE PE
 	//this method is called within the ComputerGAME loop to handle all movements of the AI
 	public void move(Paddle computerPaddle, Puck puck, double puckDIRX, double puckDIRY, double puckSpeed, JLabel attackmark){
 		
-		if(!attacking){ //if attack mode has not already been activated
-			if(puckSpeed > (difficulty*2.1134)){ //puck is going fast so computer blocks defensively
-				attackmark.setText("BLOCKING");
-				attackmark.setBackground(Color.cyan);
-				block(computerPaddle, puck);
-			}else if(puck.getCY() <= 200){ //puck is going slow enough and is in attacking zone(200) so computer calculates location then activates attacking mode
-				attackmark.setText("ATTACKING");
-				attackmark.setBackground(Color.orange);
-				calculate(computerPaddle, puck, puckDIRX, puckDIRY, puckSpeed); //calculates striking point 
-			}else{ //puck is going slow but is out of range so computer just waits
-				attackmark.setText("WAITING");
-				attackmark.setBackground(Color.cyan);
-			}
-		}else{ //attack mode has already been activated so computer strikes puck
-			if(fastStrike){
-				attackmark.setText("FAST STRIKE");
-				fastStrike(computerPaddle);
-			}else{
-				attackmark.setText("NORMAL STRIKE");
-				normalStrike(computerPaddle);
-			}
+		
+			if(!attacking){ //if attack mode has not already been activated
+				if(puckSpeed > (difficulty*2.1134)){ //puck is going fast so computer blocks defensively
+					attackmark.setText("BLOCKING");
+					attackmark.setBackground(Color.cyan);
+					block(computerPaddle, puck);
+				}else if(puck.getCY() <= 200){ //puck is going slow enough and is in attacking zone(200) so computer calculates location then activates attacking mode
+					attackmark.setText("ATTACKING");
+					attackmark.setBackground(Color.orange);
+					calculate(computerPaddle, puck, puckDIRX, puckDIRY, puckSpeed); //calculates striking point 
+				}else{ //puck is going slow but is out of range so computer just waits
+					attackmark.setText("WAITING");
+					attackmark.setBackground(Color.cyan);
+				}
+			}else{ //attack mode has already been activated so computer strikes puck
+				if(fastStrike){
+					attackmark.setText("FAST STRIKE");
+					fastStrike(computerPaddle);
+				}else{
+					attackmark.setText("NORMAL STRIKE");
+					normalStrike(computerPaddle);
+				}
+			
 		}
 	}
 	
