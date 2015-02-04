@@ -180,12 +180,14 @@ public class FourPersonServerGAME {
 			//String input = server.readPositions();
 			
 			//check if goal and print accordingly
-			if(checkIfUserGoal()){
-				//server.send("User Goal");
-				goal(opponent1Goal);
-			}else if(checkIfOpponentGoal()){
-				//server.send("Opponent Goal");
-				goal(hostGoal);
+			if(checkIfHostScoredOn()){
+				System.out.println("Hit red goal");
+			}else if(checkIfOpponent1ScoredOn()){
+				System.out.println("Hit blue goal");
+			}else if(checkIfOpponent2ScoredOn()){
+				System.out.println("Hit magenta goal");
+			}else if(checkIfOpponent3ScoredOn()){
+				System.out.println("Hit green goal");
 			}else{
 				try{
 					//server.send(puckX + " " + puckY + " " + userPaddleX + " " + userPaddleY);
@@ -294,27 +296,44 @@ public class FourPersonServerGAME {
 		setMousePosition();
 	}
 	
-	public boolean checkIfUserGoal(){
+	public boolean checkIfHostScoredOn(){
 		
-		if(puck.getY() <= 50){
-			if((puck.getCX() - puck.getRadius()) >= 157 && (puck.getCX() + puck.getRadius()) <= 287){
+		if(puck.getY() >= hostGoal.getBounds().getMaxY()){
+			if((puck.getCX() - puck.getRadius()) >= hostGoal.getBounds().getMinX() && (puck.getCX() + puck.getRadius()) <= hostGoal.getBounds().getMaxX()){
 				return true;
 			}
-		}
-			
+		}	
 		return false;
 	}
 	
-	public boolean checkIfOpponentGoal(){
+	public boolean checkIfOpponent1ScoredOn(){
 		
 		if((puck.getY() + puck.getDiameter()) >= 521){
-			if((puck.getCX() - puck.getRadius()) >= 157 && (puck.getCX() + puck.getRadius() <= 287)){
+			if((puck.getCX() - puck.getRadius()) >= opponent1Goal.getBounds().getMinX() && (puck.getCX() + puck.getRadius()) <= opponent1Goal.getBounds().getMaxX()){
 				return true;
 			}
 		}
+		return false;	
+	}
+	
+	public boolean checkIfOpponent2ScoredOn(){
 		
+		if(puck.getX() < 50){
+			if((puck.getCY() - puck.getRadius()) >= opponent2Goal.getBounds().getMinY() && (puck.getCY() + puck.getRadius()) <= opponent2Goal.getBounds().getMaxY()){
+				return true;
+			}
+		}
 		return false;
+	}
+	
+	public boolean checkIfOpponent3ScoredOn(){
 		
+		if((puck.getX() + puck.getDiameter()) >= 544){
+			if((puck.getCY() - puck.getRadius()) >= opponent3Goal.getBounds().getMinY() && (puck.getCY() + puck.getRadius()) <= opponent3Goal.getBounds().getMaxY()){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public void puckStep(){
@@ -351,6 +370,30 @@ public class FourPersonServerGAME {
 				puckSpeed += opponent1PaddleSpeed;
 			}else if(hostPaddleSpeed <= 15){
 				puckSpeed = opponent1PaddleSpeed;
+			}else{
+				puckSpeed = 15;
+			}
+			puckStep();
+		}else if(opponent2PaddleCollision()){
+			
+			puckDIRX = (puck.getCX() - opponent2Paddle.getCX()) / (Math.sqrt(((puck.getCX() - opponent2Paddle.getCX()) * (puck.getCX() - opponent2Paddle.getCX())) + ((puck.getCY() - opponent2Paddle.getCY()) * (puck.getCY() - opponent2Paddle.getCY()))));
+			puckDIRY = (puck.getCY() - opponent2Paddle.getCY()) / (Math.sqrt(((puck.getCX() - opponent2Paddle.getCX()) * (puck.getCX() - opponent2Paddle.getCX())) + ((puck.getCY() - opponent2Paddle.getCY()) * (puck.getCY() - opponent2Paddle.getCY()))));
+			if(opponent2PaddleSpeed < 5){
+				puckSpeed += opponent2PaddleSpeed;
+			}else if(hostPaddleSpeed <= 15){
+				puckSpeed = opponent2PaddleSpeed;
+			}else{
+				puckSpeed = 15;
+			}
+			puckStep();
+		}else if(opponent3PaddleCollision()){
+			
+			puckDIRX = (puck.getCX() - opponent3Paddle.getCX()) / (Math.sqrt(((puck.getCX() - opponent3Paddle.getCX()) * (puck.getCX() - opponent3Paddle.getCX())) + ((puck.getCY() - opponent3Paddle.getCY()) * (puck.getCY() - opponent3Paddle.getCY()))));
+			puckDIRY = (puck.getCY() - opponent3Paddle.getCY()) / (Math.sqrt(((puck.getCX() - opponent3Paddle.getCX()) * (puck.getCX() - opponent3Paddle.getCX())) + ((puck.getCY() - opponent3Paddle.getCY()) * (puck.getCY() - opponent3Paddle.getCY()))));
+			if(opponent3PaddleSpeed < 5){
+				puckSpeed += opponent3PaddleSpeed;
+			}else if(hostPaddleSpeed <= 15){
+				puckSpeed = opponent3PaddleSpeed;
 			}else{
 				puckSpeed = 15;
 			}
