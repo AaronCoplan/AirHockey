@@ -5,7 +5,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Point;
-import java.awt.Font;
 import java.awt.Robot;
 import java.awt.Cursor;
 import java.awt.AWTException;
