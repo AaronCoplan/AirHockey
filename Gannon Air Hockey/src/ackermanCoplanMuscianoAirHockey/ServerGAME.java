@@ -116,12 +116,12 @@ public class ServerGAME {
 		//center y value is 236
 		JLabel midline = new JLabel();
 		midline.setOpaque(true);
-		midline.setBackground(Color.black);
+		midline.setBackground(new Color(25,25,25));
 		midline.setBounds(50,276,344,20);
 		
 		JLabel walls = new JLabel();
 		walls.setBounds(0, 0, 444, 572);
-		ImageIcon wallsIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/border.jpg"));
+		ImageIcon wallsIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/border4.jpg"));
 		walls.setIcon(wallsIcon);
 		
 		frame.add(puck);
