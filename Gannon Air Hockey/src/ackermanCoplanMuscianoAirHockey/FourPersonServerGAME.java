@@ -296,7 +296,7 @@ public class FourPersonServerGAME {
 		setMousePosition();
 	}
 	
-	//DOESNT WORK!
+	
 	public boolean checkIfOpponent1ScoredOn(){
 		
 		if(puck.getY() <= opponent1Goal.getBounds().getMaxY()){
@@ -306,7 +306,7 @@ public class FourPersonServerGAME {
 		}	
 		return false;
 	}
-	//DOESTN WORK!
+	
 	public boolean checkIfHostScoredOn(){
 		
 		if((puck.getY() + puck.getDiameter()) >= 521){
