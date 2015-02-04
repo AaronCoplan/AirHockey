@@ -319,7 +319,7 @@ public class FourPersonServerGAME {
 	
 	public boolean checkIfOpponent2ScoredOn(){
 		
-		if(puck.getX() < 50){
+		if(puck.getX() <= 50){
 			if((puck.getCY() - puck.getRadius()) >= opponent2Goal.getBounds().getMinY() && (puck.getCY() + puck.getRadius()) <= opponent2Goal.getBounds().getMaxY()){
 				return true;
 			}
