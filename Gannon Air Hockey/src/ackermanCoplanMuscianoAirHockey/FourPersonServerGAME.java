@@ -86,17 +86,17 @@ public class FourPersonServerGAME {
 		opponent1Paddle = new Paddle();
 		ImageIcon opponent1PaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/bluePaddle.png"));
 		opponent1Paddle.setIcon(opponent1PaddleIcon);
-		opponent1Paddle.setBounds(297-opponent1Paddle.getRadius(), 286-200-opponent1Paddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
+		//opponent1Paddle.setBounds(297-opponent1Paddle.getRadius(), 286-200-opponent1Paddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
 		
 		opponent2Paddle = new Paddle();
 		ImageIcon opponent2PaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/purplePaddle.png"));
 		opponent2Paddle.setIcon(opponent2PaddleIcon);
-		opponent2Paddle.setBounds(50+15, 286-opponent2Paddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
+		//opponent2Paddle.setBounds(50+15, 286-opponent2Paddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
 		
 		opponent3Paddle = new Paddle();
 		ImageIcon opponent3PaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/greenPaddle.png"));
 		opponent3Paddle.setIcon(opponent3PaddleIcon);
-		opponent3Paddle.setBounds(544-65, 286-opponent3Paddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
+		//opponent3Paddle.setBounds(544-65, 286-opponent3Paddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
 		
 		hostGoal = new JLabel();
 		hostGoal.setOpaque(true);
@@ -252,7 +252,7 @@ public class FourPersonServerGAME {
 		int opponentPaddleCY = opponent3PaddleY + opponent3Paddle.getRadius();
 		Point currentPoint = new Point(opponentPaddleCX, opponentPaddleCY);
 
-		opponent3PaddleSpeed = (int)((currentPoint.distance(opponent1PreviousPoint)) / ENERGY_TRANSFER);
+		opponent3PaddleSpeed = (int)((currentPoint.distance(opponent3PreviousPoint)) / ENERGY_TRANSFER);
 		opponent3PreviousPoint = currentPoint;
 	}
 	
@@ -296,20 +296,21 @@ public class FourPersonServerGAME {
 		setMousePosition();
 	}
 	
-	public boolean checkIfHostScoredOn(){
+	//DOESNT WORK!
+	public boolean checkIfOpponent1ScoredOn(){
 		
-		if(puck.getY() >= hostGoal.getBounds().getMaxY()){
-			if((puck.getCX() - puck.getRadius()) >= hostGoal.getBounds().getMinX() && (puck.getCX() + puck.getRadius()) <= hostGoal.getBounds().getMaxX()){
+		if(puck.getY() <= opponent1Goal.getBounds().getMaxY()){
+			if((puck.getCX() - puck.getRadius()) >= opponent1Goal.getBounds().getMinX() && (puck.getCX() + puck.getRadius()) <= opponent1Goal.getBounds().getMaxX()){
 				return true;
 			}
 		}	
 		return false;
 	}
-	
-	public boolean checkIfOpponent1ScoredOn(){
+	//DOESTN WORK!
+	public boolean checkIfHostScoredOn(){
 		
 		if((puck.getY() + puck.getDiameter()) >= 521){
-			if((puck.getCX() - puck.getRadius()) >= opponent1Goal.getBounds().getMinX() && (puck.getCX() + puck.getRadius()) <= opponent1Goal.getBounds().getMaxX()){
+			if((puck.getCX() - puck.getRadius()) >= hostGoal.getBounds().getMinX() && (puck.getCX() + puck.getRadius()) <= hostGoal.getBounds().getMaxX()){
 				return true;
 			}
 		}
