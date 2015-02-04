@@ -21,17 +21,18 @@ public class FourPersonServerGAME {
 
 	private JFrame frame;
 	private Puck puck;
-	private JLabel hostGoal, opponent1Goal, hostScore, opponent1Score;
-	private Paddle opponent1Paddle, hostPaddle;
+	private JLabel hostGoal, opponent1Goal, opponent2Goal, opponent3Goal;
+	private JLabel hostScore, opponent1Score; //these need created and added to the board
+	private Paddle opponent1Paddle, opponent2Paddle, opponent3Paddle, hostPaddle;
 	
 	private double puckSpeed, puckVX, puckVY, puckDIRX, puckDIRY;
 	private int puckX, puckY;
 	
-	private int hostPaddleX, hostPaddleY, opponent1PaddleX, opponent1PaddleY;
+	private int hostPaddleX, hostPaddleY, opponent1PaddleX, opponent1PaddleY, opponent2PaddleX, opponent2PaddleY, opponent3PaddleX, opponent3PaddleY;
 	private int hostNumGoals = 0, opp1NumGoals = 0;
 	
-	private int hostPaddleSpeed = 0, opponent1PaddleSpeed = 0;
-	private Point opponent1PreviousPoint = new Point(0, 0);
+	private int hostPaddleSpeed = 0, opponent1PaddleSpeed = 0, opponent2PaddleSpeed = 0, opponent3PaddleSpeed = 0;
+	private Point opponent1PreviousPoint = new Point(0, 0), opponent2PreviousPoint = new Point(0, 0), opponent3PreviousPoint = new Point(0, 0);
 	private Cursor blankCursor;
 	
 	private Robot robot;
@@ -39,6 +40,10 @@ public class FourPersonServerGAME {
 	
 	private final double FRICTION = 1.0045, ENERGY_TRANSFER = 1.00023;
 	private final int PADDLE_DIAMETER = 50;
+	
+	public static void main(String[] args){
+		new FourPersonServerGAME(null);
+	}
 	
 	public FourPersonServerGAME(FourPersonServer server){
 		
@@ -69,72 +74,89 @@ public class FourPersonServerGAME {
 		frame.setCursor(blankCursor);
 		
 		puck = new Puck();
-		puck.setBounds(222-puck.getRadius(), 286-puck.getRadius(), 30, 30);
+		puck.setBounds(297-puck.getRadius(), 286-puck.getRadius(), 30, 30);
 		ImageIcon puckIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/puck.png"));
 		puck.setIcon(puckIcon);
 		
 		hostPaddle = new Paddle();
 		ImageIcon userPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/redPaddle.png"));
 		hostPaddle.setIcon(userPaddleIcon);
-		hostPaddle.setBounds(222-hostPaddle.getRadius(), 286+200-hostPaddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
+		hostPaddle.setBounds(297-hostPaddle.getRadius(), 286+200-hostPaddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
 		
 		opponent1Paddle = new Paddle();
-		ImageIcon opponentPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/bluePaddle.png"));
-		opponent1Paddle.setIcon(opponentPaddleIcon);
-		opponent1Paddle.setBounds(222-opponent1Paddle.getRadius(), 286-200-opponent1Paddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
+		ImageIcon opponent1PaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/bluePaddle.png"));
+		opponent1Paddle.setIcon(opponent1PaddleIcon);
+		opponent1Paddle.setBounds(297-opponent1Paddle.getRadius(), 286-200-opponent1Paddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
+		
+		opponent2Paddle = new Paddle();
+		ImageIcon opponent2PaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/purplePaddle.png"));
+		opponent2Paddle.setIcon(opponent2PaddleIcon);
+		opponent2Paddle.setBounds(50+15, 286-opponent2Paddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
+		
+		opponent3Paddle = new Paddle();
+		ImageIcon opponent3PaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/greenPaddle.png"));
+		opponent3Paddle.setIcon(opponent3PaddleIcon);
+		opponent3Paddle.setBounds(544-65, 286-opponent3Paddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
 		
 		hostGoal = new JLabel();
 		hostGoal.setOpaque(true);
 		hostGoal.setBackground(Color.red);
-		hostGoal.setBounds(157, 522, 130, 50);
+		hostGoal.setBounds(297-65, 522, 130, 50);
 		
 		opponent1Goal = new JLabel();
 		opponent1Goal.setOpaque(true);
 		opponent1Goal.setBackground(Color.blue);
-		opponent1Goal.setBounds(157, 0, 130, 50);
+		opponent1Goal.setBounds(297-65, 0, 130, 50);
 		
-		hostScore = new JLabel(server.getHostName() + ": " + hostNumGoals, JLabel.CENTER);
-		hostScore.setOpaque(true);
-		hostScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
-		hostScore.setForeground(Color.red);
-		hostScore.setBackground(Color.black);
-		hostScore.setBounds(15, 532, 90, 30);
+		opponent2Goal = new JLabel();
+		opponent2Goal.setOpaque(true);
+		opponent2Goal.setBackground(Color.magenta);
+		opponent2Goal.setBounds(0, 236+50-65, 50, 130);
 		
-		opponent1Score = new JLabel(server.getOpponent1Name() + ": " + opp1NumGoals, JLabel.CENTER);
-		opponent1Score.setOpaque(true);
-		opponent1Score.setFont(new Font("Arial Bold", Font.BOLD, 15));
-		opponent1Score.setForeground(Color.blue);
-		opponent1Score.setBackground(Color.black);
-		opponent1Score.setBounds(15, 10, 90, 30);
+		opponent3Goal = new JLabel();
+		opponent3Goal.setOpaque(true);
+		opponent3Goal.setBackground(Color.green);
+		opponent3Goal.setBounds(544, 236+50-65, 50, 130);
 		
 		JLabel back = new JLabel();
-		back.setBounds(50, 50, 344, 472);
+		back.setBounds(50, 50, 594, 472);
 		ImageIcon icon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/woodBack.png"));
 		back.setIcon(icon);
 		
-		//Add a midline here
-		//center y value is 236
-		JLabel midline = new JLabel();
-		midline.setOpaque(true);
-		midline.setBackground(Color.black);
-		midline.setBounds(50,276,344,20);
+		JLabel tempLeftWall = new JLabel();
+		tempLeftWall.setOpaque(true);
+		tempLeftWall.setBackground(Color.black);
+		tempLeftWall.setBounds(0, 0, 50, 600);
 		
-		JLabel walls = new JLabel();
-		walls.setBounds(0, 0, 444, 572);
-		ImageIcon wallsIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/border.jpg"));
-		walls.setIcon(wallsIcon);
+		JLabel tempRightWall = new JLabel();
+		tempRightWall.setOpaque(true);
+		tempRightWall.setBackground(Color.black);
+		tempRightWall.setBounds(544, 0, 50, 600);
+		
+		JLabel tempTopWall = new JLabel();
+		tempTopWall.setOpaque(true);
+		tempTopWall.setBackground(Color.black);
+		tempTopWall.setBounds(0, 0, 600, 50);
+		
+		JLabel tempBottomWall = new JLabel();
+		tempBottomWall.setOpaque(true);
+		tempBottomWall.setBackground(Color.black);
+		tempBottomWall.setBounds(0, 522, 600, 50);
 		
 		frame.add(puck);
 		frame.add(hostPaddle);
 		frame.add(opponent1Paddle);
+		frame.add(opponent2Paddle);
+		frame.add(opponent3Paddle);
 		frame.add(hostGoal);
 		frame.add(opponent1Goal);
-		frame.add(hostScore);
-		frame.add(opponent1Score);
-		frame.add(back);
-		frame.add(walls);
-		frame.add(midline);
-		frame.setSize(450, 600);
+		frame.add(opponent2Goal);
+		frame.add(opponent3Goal);
+		frame.add(tempLeftWall);
+		frame.add(tempRightWall);
+		frame.add(tempTopWall);
+		frame.add(tempBottomWall);
+		frame.setSize(600, 600);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		setMousePosition();
@@ -177,7 +199,9 @@ public class FourPersonServerGAME {
 			//opponentPaddleX = Integer.parseInt(input.substring(0, input.indexOf(" ")));
 			//opponentPaddleY = Integer.parseInt(input.substring(input.indexOf(" ") + 1));
 			
-			calculateOpponentPaddleSpeed();
+			calculateOpponent1PaddleSpeed();
+			calculateOpponent2PaddleSpeed();
+			calculateOpponent3PaddleSpeed();
 			
 			puckX = puck.getX();
 			puckY = puck.getY();
@@ -188,7 +212,7 @@ public class FourPersonServerGAME {
 			
 			puck.setBounds(puckX, puckY, 30, 30);
 			hostPaddle.setBounds(hostPaddleX, hostPaddleY, PADDLE_DIAMETER, PADDLE_DIAMETER);
-			opponent1Paddle.setBounds(opponent1PaddleX, opponent1PaddleY, PADDLE_DIAMETER, PADDLE_DIAMETER);
+			//opponent1Paddle.setBounds(opponent1PaddleX, opponent1PaddleY, PADDLE_DIAMETER, PADDLE_DIAMETER);
 			
 			friction();
 			
@@ -200,7 +224,7 @@ public class FourPersonServerGAME {
 		JOptionPane.showMessageDialog(null, "Game Over!");
 	}
 	
-	public void calculateOpponentPaddleSpeed(){
+	public void calculateOpponent1PaddleSpeed(){
 		
 		int opponentPaddleCX  = opponent1PaddleX + opponent1Paddle.getRadius();
 		int opponentPaddleCY = opponent1PaddleY + opponent1Paddle.getRadius();
@@ -208,7 +232,26 @@ public class FourPersonServerGAME {
 		
 		opponent1PaddleSpeed = (int)((currentPoint.distance(opponent1PreviousPoint)) / ENERGY_TRANSFER);
 		opponent1PreviousPoint = currentPoint;
-		
+	}
+	
+	public void calculateOpponent2PaddleSpeed(){
+
+		int opponentPaddleCX  = opponent2PaddleX + opponent2Paddle.getRadius();
+		int opponentPaddleCY = opponent2PaddleY + opponent2Paddle.getRadius();
+		Point currentPoint = new Point(opponentPaddleCX, opponentPaddleCY);
+
+		opponent2PaddleSpeed = (int)((currentPoint.distance(opponent2PreviousPoint)) / ENERGY_TRANSFER);
+		opponent2PreviousPoint = currentPoint;
+	}
+
+	public void calculateOpponent3PaddleSpeed(){
+
+		int opponentPaddleCX  = opponent3PaddleX + opponent3Paddle.getRadius();
+		int opponentPaddleCY = opponent3PaddleY + opponent3Paddle.getRadius();
+		Point currentPoint = new Point(opponentPaddleCX, opponentPaddleCY);
+
+		opponent3PaddleSpeed = (int)((currentPoint.distance(opponent1PreviousPoint)) / ENERGY_TRANSFER);
+		opponent3PreviousPoint = currentPoint;
 	}
 	
 	public void friction(){
@@ -300,7 +343,7 @@ public class FourPersonServerGAME {
 				puckSpeed = 15;
 			}
 			puckStep();
-		}else if(opponentPaddleCollision()){
+		}else if(opponent1PaddleCollision()){
 			
 			puckDIRX = (puck.getCX() - opponent1Paddle.getCX()) / (Math.sqrt(((puck.getCX() - opponent1Paddle.getCX()) * (puck.getCX() - opponent1Paddle.getCX())) + ((puck.getCY() - opponent1Paddle.getCY()) * (puck.getCY() - opponent1Paddle.getCY()))));
 			puckDIRY = (puck.getCY() - opponent1Paddle.getCY()) / (Math.sqrt(((puck.getCX() - opponent1Paddle.getCX()) * (puck.getCX() - opponent1Paddle.getCX())) + ((puck.getCY() - opponent1Paddle.getCY()) * (puck.getCY() - opponent1Paddle.getCY()))));
@@ -327,10 +370,30 @@ public class FourPersonServerGAME {
 		}
 	}
 	
-	public boolean opponentPaddleCollision(){
+	public boolean opponent1PaddleCollision(){
 		
 		double distance = Math.sqrt((puck.getCX() - opponent1Paddle.getCX()) * (puck.getCX() - opponent1Paddle.getCX()) + ((puck.getCY() - opponent1Paddle.getCY()) * (puck.getCY() - opponent1Paddle.getCY())));
 		if(distance <= (puck.getRadius() + opponent1Paddle.getRadius())){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public boolean opponent2PaddleCollision(){
+		
+		double distance = Math.sqrt((puck.getCX() - opponent2Paddle.getCX()) * (puck.getCX() - opponent2Paddle.getCX()) + ((puck.getCY() - opponent2Paddle.getCY()) * (puck.getCY() - opponent2Paddle.getCY())));
+		if(distance <= (puck.getRadius() + opponent1Paddle.getRadius())){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public boolean opponent3PaddleCollision(){
+		
+		double distance = Math.sqrt((puck.getCX() - opponent3Paddle.getCX()) * (puck.getCX() - opponent3Paddle.getCX()) + ((puck.getCY() - opponent3Paddle.getCY()) * (puck.getCY() - opponent3Paddle.getCY())));
+		if(distance <= (puck.getRadius() + opponent3Paddle.getRadius())){
 			return true;
 		}else{
 			return false;
@@ -345,15 +408,15 @@ public class FourPersonServerGAME {
 		}else if(puck.getX() <= 50 && (puck.getY() + puck.getDiameter()) >= 522){ //bottom left corner
 			puckDIRX= Math.abs(puckDIRX);
 			puckDIRY= -Math.abs(puckDIRY);
-		}else if((puck.getX() + puck.getDiameter()) >= 394 && puck.getY() <= 50){ //upper right corner
+		}else if((puck.getX() + puck.getDiameter()) >= 544 && puck.getY() <= 50){ //upper right corner
 			puckDIRX= -Math.abs(puckDIRX);
 			puckDIRY = Math.abs(puckDIRY);
-		}else if((puck.getX() + puck.getDiameter()) >= 394 && (puck.getY() + puck.getDiameter()) >= 522){ //bottom right corner
+		}else if((puck.getX() + puck.getDiameter()) >= 544 && (puck.getY() + puck.getDiameter()) >= 522){ //bottom right corner
 			puckDIRX = -Math.abs(puckDIRX);
 			puckDIRY = -Math.abs(puckDIRY);
 		}else if(puck.getX() <= 50 /*left wall border*/){
 			puckDIRX = Math.abs(puckDIRX);
-		}else if((puck.getX() + puck.getDiameter()) >= 394 /*right wall border*/){
+		}else if((puck.getX() + puck.getDiameter()) >= 544 /*right wall border*/){
 			puckDIRX = -Math.abs(puckDIRX);
 		}else if(puck.getY() <= 50 /*top wall border*/){
 			puckDIRY = Math.abs(puckDIRY);
@@ -379,14 +442,14 @@ public class FourPersonServerGAME {
 			int mouseX = e.getPoint().x;
 			int mouseY = e.getPoint().y;
 			
-			if((mouseX - hostPaddle.getRadius()) >= 50 && (mouseX + hostPaddle.getRadius()) <= 394 && (mouseY - hostPaddle.getDiameter()) >= 50 && ((mouseY) >= 322 && (mouseY)<=522)){
+			//if((mouseX - hostPaddle.getRadius()) >= 50 && (mouseX + hostPaddle.getRadius()) <= 394 && (mouseY - hostPaddle.getDiameter()) >= 50 && ((mouseY) >= 322 && (mouseY)<=522)){
 				frame.setCursor(blankCursor);
 				hostPaddleX = mouseX - hostPaddle.getRadius();
 				hostPaddleY = mouseY - hostPaddle.getDiameter();
-			}else{
+			/*}else{
 				Cursor cursor = new Cursor(Cursor.DEFAULT_CURSOR);
 				frame.setCursor(cursor);
-			}
+			}*/
 			
 			hostPaddleSpeed = (int)((e.getPoint().distance(userPreviousPoint)) / ENERGY_TRANSFER);
 			
