@@ -134,7 +134,8 @@ public class ComputerGAME {
 		//center y value is 236
 		JLabel midline = new JLabel();
 		midline.setOpaque(true);
-		midline.setBackground(Color.black);
+		
+		midline.setBackground(new Color(25,25,25));
 		midline.setBounds(50,276,344,20);
 		
 		
