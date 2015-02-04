@@ -110,7 +110,7 @@ public class ComputerGAME {
 		
 		//sets up the JLabel to represent your score
 		userScore = new JLabel("You: " + yourNumGoals, JLabel.CENTER);
-		userScore.setOpaque(true);
+		userScore.setOpaque(false);
 		userScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
 		userScore.setForeground(Color.red);
 		userScore.setBackground(Color.black);
@@ -118,7 +118,7 @@ public class ComputerGAME {
 		
 		//sets up the JLabel to represent the computer's score
 		opponentScore = new JLabel("Computer: " + oppNumGoals, JLabel.CENTER);
-		opponentScore.setOpaque(true);
+		opponentScore.setOpaque(false);
 		opponentScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
 		opponentScore.setForeground(Color.blue);
 		opponentScore.setBackground(Color.black);

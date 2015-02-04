@@ -94,14 +94,14 @@ public class ServerGAME {
 		opponentGoal.setBounds(157, 0, 130, 50);
 		
 		userScore = new JLabel(server.getYourName() + ": " + yourNumGoals, JLabel.CENTER);
-		userScore.setOpaque(true);
+		userScore.setOpaque(false);
 		userScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
 		userScore.setForeground(Color.red);
 		userScore.setBackground(Color.black);
 		userScore.setBounds(15, 532, 90, 30);
 		
 		opponentScore = new JLabel(server.getOpponentName() + ": " + oppNumGoals, JLabel.CENTER);
-		opponentScore.setOpaque(true);
+		opponentScore.setOpaque(false);
 		opponentScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
 		opponentScore.setForeground(Color.blue);
 		opponentScore.setBackground(Color.black);

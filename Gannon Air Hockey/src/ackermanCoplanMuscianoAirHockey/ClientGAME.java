@@ -93,7 +93,7 @@ public class ClientGAME {
 
 		//sets up the user score including the user's name
 		userScore = new JLabel(client.getOpponentName() + ": " + yourNumGoals, JLabel.CENTER);
-		userScore.setOpaque(true);
+		userScore.setOpaque(false);
 		userScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
 		userScore.setForeground(Color.red);
 		userScore.setBackground(Color.black);
@@ -101,7 +101,7 @@ public class ClientGAME {
 
 		//sets up the opponent score, including the opponent's name
 		opponentScore = new JLabel(client.getYourName() + ": " + oppNumGoals, JLabel.CENTER);
-		opponentScore.setOpaque(true);
+		opponentScore.setOpaque(false);
 		opponentScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
 		opponentScore.setForeground(Color.blue);
 		opponentScore.setBackground(Color.black);
