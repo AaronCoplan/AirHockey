@@ -177,7 +177,7 @@ public class FourPersonServerGAME {
 			String opp3Locations = server.readOpponent3Locations();
 			
 			//check if goal and print accordingly
-			if(checkIfHostScoredOn()){
+			/*if(checkIfHostScoredOn()){
 				System.out.println("Hit red goal");
 			}else if(checkIfOpponent1ScoredOn()){
 				System.out.println("Hit blue goal");
@@ -185,7 +185,7 @@ public class FourPersonServerGAME {
 				System.out.println("Hit magenta goal");
 			}else if(checkIfOpponent3ScoredOn()){
 				System.out.println("Hit green goal");
-			}else{
+			}else{*/
 				try{
 					server.sendLocations(hostPaddleX, hostPaddleY, opponent1PaddleX, opponent1PaddleY, opponent2PaddleX, opponent2PaddleY, opponent3PaddleX, opponent3PaddleY, puckX, puckY);
 				}catch(Exception e){
@@ -193,7 +193,7 @@ public class FourPersonServerGAME {
 					JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
 					JOptionPane.showMessageDialog(null, "Error with Print Writer!", "ERROR", JOptionPane.ERROR_MESSAGE);
 				}
-			}
+			//}
 			
 			int index;
 			opponent1PaddleX = Integer.parseInt(opp1Locations.substring(0, (index = opp1Locations.indexOf(" "))));
