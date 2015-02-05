@@ -207,7 +207,7 @@ public class FourPersonClientGAME {
 					int index;
 					hostPaddleX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
-					hostPaddleY = Integer.parseInt(input);
+					hostPaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					System.out.println("HOST PADDLE X: " + hostPaddleX);
 					System.out.println("HOST PADDLE Y: " + hostPaddleY);
 				}else if(PLAYER_NUMBER == 2){
