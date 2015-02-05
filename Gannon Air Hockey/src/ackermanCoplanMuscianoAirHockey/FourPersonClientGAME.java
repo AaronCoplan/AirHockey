@@ -264,7 +264,6 @@ public class FourPersonClientGAME {
 	
 	private class ML implements MouseMotionListener{
 
-		private Point userPreviousPoint = new Point(0, 0);
 		//DO THE SAME THING FOR BOTH DRAGGED AND MOVED
 		public void mouseDragged(MouseEvent e) {
 			mouseEvent(e);
@@ -281,8 +280,16 @@ public class FourPersonClientGAME {
 			
 			//if((mouseX - hostPaddle.getRadius()) >= 50 && (mouseX + hostPaddle.getRadius()) <= 394 && (mouseY - hostPaddle.getDiameter()) >= 50 && ((mouseY) >= 322 && (mouseY)<=522)){
 				frame.setCursor(blankCursor);
-				hostPaddleX = mouseX - hostPaddle.getRadius();
-				hostPaddleY = mouseY - hostPaddle.getDiameter();
+				if(PLAYER_NUMBER == 1){
+					opponent1PaddleX = mouseX - opponent1Paddle.getRadius();
+					opponent1PaddleY = mouseY - opponent1Paddle.getDiameter();
+				}else if(PLAYER_NUMBER == 2){
+					opponent2PaddleX = mouseX - opponent2Paddle.getRadius();
+					opponent2PaddleY = mouseY - opponent2Paddle.getDiameter();
+				}else if(PLAYER_NUMBER == 3){
+					opponent3PaddleX = mouseX - opponent3Paddle.getRadius();
+					opponent3PaddleY = mouseY - opponent3Paddle.getDiameter();
+				}
 			/*}else{
 				Cursor cursor = new Cursor(Cursor.DEFAULT_CURSOR);
 				frame.setCursor(cursor);
