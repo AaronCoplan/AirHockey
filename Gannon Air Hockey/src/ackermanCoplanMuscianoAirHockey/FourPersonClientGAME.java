@@ -226,12 +226,38 @@ public class FourPersonClientGAME {
 					hostPaddleX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
 					hostPaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					opponent1PaddleX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					opponent1PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					opponent2PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					opponent2PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					opponent3PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					opponent3PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
 					
 				}else if(PLAYER_NUMBER == 3){
 					int index;
 					hostPaddleX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
 					hostPaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					opponent1PaddleX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					opponent1PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					opponent2PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					opponent2PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					opponent3PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					opponent3PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
 					
 				}
 			}
