@@ -155,7 +155,7 @@ public class FourPersonClientGAME {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		setMousePosition();
-		//run();
+		run();
 	}
 	
 	public void setMousePosition(){
