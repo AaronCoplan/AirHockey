@@ -91,6 +91,8 @@ public class FourPersonServer {
 	public void sendLocations(int hostPaddleX, int hostPaddleY, int opponent1PaddleX, int opponent1PaddleY, int opponent2PaddleX, int opponent2PaddleY, int opponent3PaddleX, int opponent3PaddleY, int puckX, int puckY){
 		
 		pw1.println(hostPaddleX + " " + hostPaddleY + " " + opponent1PaddleX + " " + opponent1PaddleY + " " + opponent2PaddleX + " " + opponent2PaddleY + " " + opponent3PaddleX + " " + opponent3PaddleY + " " + puckX + " " + puckY);
+		pw2.println(hostPaddleX + " " + hostPaddleY + " " + opponent1PaddleX + " " + opponent1PaddleY + " " + opponent2PaddleX + " " + opponent2PaddleY + " " + opponent3PaddleX + " " + opponent3PaddleY + " " + puckX + " " + puckY);
+		pw3.println(hostPaddleX + " " + hostPaddleY + " " + opponent1PaddleX + " " + opponent1PaddleY + " " + opponent2PaddleX + " " + opponent2PaddleY + " " + opponent3PaddleX + " " + opponent3PaddleY + " " + puckX + " " + puckY);
 	}
 	
 	public String readOpponent1Locations(){
