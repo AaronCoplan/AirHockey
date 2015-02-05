@@ -1,5 +1,5 @@
 package ackermanCoplanMuscianoAirHockey; //COMMENTED
-
+//286 is center y coordinate
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Point;
@@ -30,7 +30,7 @@ public class AI { //WE NEED TO TEACH THE COMPUTER HOW TO BEAT SUPER DEFENSIVE PE
 					attackmark.setText("BLOCKING");
 					attackmark.setBackground(Color.cyan);
 					block(computerPaddle, puck);
-				}else if(puck.getCY() <= 200){ //puck is going slow enough and is in attacking zone(200) so computer calculates location then activates attacking mode
+				}else if(puck.getCY() <= 286-puck.getRadius()){ //puck is going slow enough and is in attacking zone(200) so computer calculates location then activates attacking mode
 					attackmark.setText("ATTACKING");
 					attackmark.setBackground(Color.orange);
 					calculate(computerPaddle, puck, puckDIRX, puckDIRY, puckSpeed); //calculates striking point 
@@ -99,9 +99,9 @@ public class AI { //WE NEED TO TEACH THE COMPUTER HOW TO BEAT SUPER DEFENSIVE PE
 		{
 			computerPaddle.setBounds(computerPaddle.getX(), 51, 50,50);
 		}
-		else if((computerPaddle.getCY()) >= 322)
+		else if((computerPaddle.getCY()) >= 286-computerPaddle.getRadius())
 		{
-			computerPaddle.setBounds(computerPaddle.getX(), 321, 50, 50);
+			computerPaddle.setBounds(computerPaddle.getX(), 285-computerPaddle.getDiameter(), 50, 50);
 		}
 	}
 	

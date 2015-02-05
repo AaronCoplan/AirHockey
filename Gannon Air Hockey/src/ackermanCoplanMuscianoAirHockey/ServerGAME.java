@@ -379,7 +379,7 @@ public class ServerGAME {
 			int mouseX = e.getPoint().x;
 			int mouseY = e.getPoint().y;
 			
-			if((mouseX - userPaddle.getRadius()) >= 50 && (mouseX + userPaddle.getRadius()) <= 394 && (mouseY - userPaddle.getDiameter()) >= 50 && ((mouseY) >= 322 && (mouseY)<=522)){
+			if((mouseX - userPaddle.getRadius()) >= 50 && (mouseX + userPaddle.getRadius()) <= 394 && (mouseY - userPaddle.getDiameter()) >= 50 && ((mouseY) >= 332 && (mouseY)<=522)){
 				frame.setCursor(blankCursor);
 				userPaddleX = mouseX - userPaddle.getRadius();
 				userPaddleY = mouseY - userPaddle.getDiameter();
