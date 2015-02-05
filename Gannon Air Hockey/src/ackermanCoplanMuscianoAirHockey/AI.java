@@ -53,14 +53,14 @@ public class AI { //WE NEED TO TEACH THE COMPUTER HOW TO BEAT SUPER DEFENSIVE PE
 	
 	private void fastStrike(Paddle computerPaddle){
 		
-		if(count < 10){ //wait for the first ten
+		if(count < 15){ //wait for the first ten
 			
-		}else if(count <= 15){ //attack for the next 5
+		}else if(count <= 20){ //attack for the next 5
 			computerPaddle.setBounds((int)(computerPaddle.getX()+(dirx*speed)), (int)(computerPaddle.getY()+(diry*speed)), 50, 50);
-		}else if(count < 18){ //retreat towards original position
+		}else if(count < 28){ //retreat towards original position
 			computerPaddle.setBounds((int)(computerPaddle.getX()-(dirx*speed)), (int)(computerPaddle.getY()-(diry*speed)), 50, 50);
 		}else{ //wait then break attacking mode
-			if(count == 25){
+			if(count == 33){
 				count = 0;
 				attacking = false;
 			}
@@ -72,11 +72,11 @@ public class AI { //WE NEED TO TEACH THE COMPUTER HOW TO BEAT SUPER DEFENSIVE PE
 	
 	private void normalStrike(Paddle computerPaddle){
 		
-		if(count < 15){	//for the first 15 updates, move to and on the 15th, strike the puck
+		if(count < 20){	//for the first 15 updates, move to and on the 15th, strike the puck
 			computerPaddle.setBounds((int)(computerPaddle.getX()+(dirx*speed)), (int)(computerPaddle.getY()+(diry*speed)), 50, 50);
 		}else{ //for the next ten, retreat towards the original position
 			computerPaddle.setBounds((int)(computerPaddle.getX()-(dirx*speed)), (int)(computerPaddle.getY()-(diry*speed)), 50, 50);
-			if(count == 25){ //once it reaches 25 updates(the amount of time the striking and retreating takes), reset the counter and deactivate attacking mode
+			if(count == 35){ //once it reaches 25 updates(the amount of time the striking and retreating takes), reset the counter and deactivate attacking mode
 				count = 0;
 				attacking = false;
 			}
