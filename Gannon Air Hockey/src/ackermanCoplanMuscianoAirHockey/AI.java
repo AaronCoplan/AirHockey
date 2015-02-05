@@ -25,6 +25,7 @@ public class AI { //WE NEED TO TEACH THE COMPUTER HOW TO BEAT SUPER DEFENSIVE PE
 		
 		
 			if(!attacking){ //if attack mode has not already been activated
+				bound(computerPaddle);
 				if(puckSpeed > (difficulty*2.1134)){ //puck is going fast so computer blocks defensively
 					attackmark.setText("BLOCKING");
 					attackmark.setBackground(Color.cyan);
@@ -47,6 +48,7 @@ public class AI { //WE NEED TO TEACH THE COMPUTER HOW TO BEAT SUPER DEFENSIVE PE
 				}
 			
 		}
+			bound(computerPaddle);
 	}
 	
 	private void fastStrike(Paddle computerPaddle){
@@ -64,6 +66,7 @@ public class AI { //WE NEED TO TEACH THE COMPUTER HOW TO BEAT SUPER DEFENSIVE PE
 			}
 		}
 		
+		
 		count++; //increments the counter
 	}
 	
@@ -78,7 +81,28 @@ public class AI { //WE NEED TO TEACH THE COMPUTER HOW TO BEAT SUPER DEFENSIVE PE
 				attacking = false;
 			}
 		}
+		
 		count++; //increments the counter
+	}
+	
+	private void bound(Paddle computerPaddle)
+	{
+		if(computerPaddle.getCX()-computerPaddle.getRadius()<50)
+		{
+			computerPaddle.setBounds(51, computerPaddle.getY(),50,50);
+		}
+		else if((computerPaddle.getCX() + computerPaddle.getRadius()) > 394)
+		{
+			computerPaddle.setBounds(343, computerPaddle.getY(),50,50);
+		}
+		else if((computerPaddle.getCY() - computerPaddle.getRadius()) < 50)
+		{
+			computerPaddle.setBounds(computerPaddle.getX(), 51, 50,50);
+		}
+		else if((computerPaddle.getCY()) >= 322)
+		{
+			computerPaddle.setBounds(computerPaddle.getX(), 321, 50, 50);
+		}
 	}
 	
 	private void calculate(Paddle computerPaddle, Puck puck, double puckDIRX, double puckDIRY, double puckSpeed){
