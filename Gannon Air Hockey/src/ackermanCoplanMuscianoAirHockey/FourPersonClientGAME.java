@@ -213,14 +213,17 @@ public class FourPersonClientGAME {
 					input = input.substring(index+1);
 					opponent1PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
-					opponent2PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					opponent2PaddleX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
 					opponent2PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
-					opponent3PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					opponent3PaddleX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
 					opponent3PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
+					puckX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					puckY = Integer.parseInt(input);
 				}else if(PLAYER_NUMBER == 2){
 					int index;
 					hostPaddleX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
@@ -231,14 +234,17 @@ public class FourPersonClientGAME {
 					input = input.substring(index+1);
 					opponent1PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
-					opponent2PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					opponent2PaddleX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
 					opponent2PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
-					opponent3PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					opponent3PaddleX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
 					opponent3PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
+					puckX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					puckY = Integer.parseInt(input);
 					
 				}else if(PLAYER_NUMBER == 3){
 					int index;
@@ -250,14 +256,17 @@ public class FourPersonClientGAME {
 					input = input.substring(index+1);
 					opponent1PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
-					opponent2PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					opponent2PaddleX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
 					opponent2PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
-					opponent3PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					opponent3PaddleX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
 					opponent3PaddleY = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
 					input = input.substring(index+1);
+					puckX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
+					puckY = Integer.parseInt(input);
 					
 				}
 			}
