@@ -197,11 +197,11 @@ public class FourPersonServerGAME {
 			
 			int index;
 			opponent1PaddleX = Integer.parseInt(opp1Locations.substring(0, (index = opp1Locations.indexOf(" "))));
-			opponent1PaddleY = Integer.parseInt(opp1Locations.substring(index));
+			opponent1PaddleY = Integer.parseInt(opp1Locations.substring(index+1));
 			opponent2PaddleX = Integer.parseInt(opp2Locations.substring(0,  (index = opp2Locations.indexOf(" "))));
-			opponent2PaddleY = Integer.parseInt(opp2Locations.substring(index));
+			opponent2PaddleY = Integer.parseInt(opp2Locations.substring(index+1));
 			opponent3PaddleX = Integer.parseInt(opp3Locations.substring(0, (index = opp3Locations.indexOf(" "))));
-			opponent3PaddleY = Integer.parseInt(opp3Locations.substring(index));
+			opponent3PaddleY = Integer.parseInt(opp3Locations.substring(index+1));
 			
 			calculateOpponent1PaddleSpeed();
 			calculateOpponent2PaddleSpeed();

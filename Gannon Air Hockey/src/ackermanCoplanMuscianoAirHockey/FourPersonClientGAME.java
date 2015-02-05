@@ -204,7 +204,9 @@ public class FourPersonClientGAME {
 				//goal action
 			}else{ 
 				if(PLAYER_NUMBER == 1){
-					
+					int index;
+					hostPaddleX = Integer.parseInt(input.substring(0, (index = input.indexOf(" "))));
+					input = input.substring(index+1);
 				}else if(PLAYER_NUMBER == 2){
 					
 				}else if(PLAYER_NUMBER == 3){
