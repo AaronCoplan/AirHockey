@@ -33,6 +33,7 @@ public class Driver {
 		 * Done--teach the computer to account for the puck bouncing off of walls
 		 * Done--bound people to their half
 		 * Done--draw a midline
+		 * Done--bound the computer to the game board and its own half
 		 */
 		
 		/* FOUR PERSON AND MULTIPLAYER IN GENERAL
@@ -48,7 +49,7 @@ public class Driver {
 		 */
 		
 		/* AI ISSUES
-		 * ACK--bound the computer to the game board and its own half
+		 * 
 		 */
 		
 		/* GAMEPLAY ISSUES
