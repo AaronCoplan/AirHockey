@@ -40,10 +40,6 @@ public class FourPersonServerGAME {
 	private final double FRICTION = 1.0045, ENERGY_TRANSFER = 1.00023;
 	private final int PADDLE_DIAMETER = 50;
 	
-	public static void main(String[] args){
-		new FourPersonServerGAME(null);
-	}
-	
 	public FourPersonServerGAME(FourPersonServer server){
 		
 		this.server = server;
@@ -176,7 +172,9 @@ public class FourPersonServerGAME {
 		while(hostNumGoals < 7 && opp1NumGoals < 7){
 			
 			//read data
-			//String input = server.readPositions();
+			String opp1Locations = server.readOpponent1Locations();
+			String opp2Locations = server.readOpponent2Locations();
+			String opp3Locations = server.readOpponent3Locations();
 			
 			//check if goal and print accordingly
 			if(checkIfHostScoredOn()){
@@ -189,7 +187,7 @@ public class FourPersonServerGAME {
 				System.out.println("Hit green goal");
 			}else{
 				try{
-					//server.send(puckX + " " + puckY + " " + userPaddleX + " " + userPaddleY);
+					server.sendLocations(hostPaddleX, hostPaddleY, opponent1PaddleX, opponent1PaddleY, opponent2PaddleX, opponent2PaddleY, opponent3PaddleX, opponent3PaddleY, puckX, puckY);
 				}catch(Exception e){
 					e.printStackTrace();
 					JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -197,8 +195,13 @@ public class FourPersonServerGAME {
 				}
 			}
 			
-			//opponentPaddleX = Integer.parseInt(input.substring(0, input.indexOf(" ")));
-			//opponentPaddleY = Integer.parseInt(input.substring(input.indexOf(" ") + 1));
+			int index;
+			opponent1PaddleX = Integer.parseInt(opp1Locations.substring(0, (index = opp1Locations.indexOf(" "))));
+			opponent1PaddleY = Integer.parseInt(opp1Locations.substring(index));
+			opponent2PaddleX = Integer.parseInt(opp2Locations.substring(0,  (index = opp2Locations.indexOf(" "))));
+			opponent2PaddleY = Integer.parseInt(opp2Locations.substring(index));
+			opponent3PaddleX = Integer.parseInt(opp3Locations.substring(0, (index = opp3Locations.indexOf(" "))));
+			opponent3PaddleY = Integer.parseInt(opp3Locations.substring(index));
 			
 			calculateOpponent1PaddleSpeed();
 			calculateOpponent2PaddleSpeed();
@@ -213,7 +216,9 @@ public class FourPersonServerGAME {
 			
 			puck.setBounds(puckX, puckY, 30, 30);
 			hostPaddle.setBounds(hostPaddleX, hostPaddleY, PADDLE_DIAMETER, PADDLE_DIAMETER);
-			//opponent1Paddle.setBounds(opponent1PaddleX, opponent1PaddleY, PADDLE_DIAMETER, PADDLE_DIAMETER);
+			opponent1Paddle.setBounds(opponent1PaddleX, opponent1PaddleY, PADDLE_DIAMETER, PADDLE_DIAMETER);
+			opponent2Paddle.setBounds(opponent2PaddleX, opponent2PaddleY, PADDLE_DIAMETER, PADDLE_DIAMETER);
+			opponent3Paddle.setBounds(opponent3PaddleX, opponent3PaddleY, PADDLE_DIAMETER, PADDLE_DIAMETER);
 			
 			friction();
 			

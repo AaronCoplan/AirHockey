@@ -88,5 +88,20 @@ public class FourPersonClient {
 		pw.flush();
 	}
 
-	//need send and read methods for four person
+	public void sendLocations(int paddleX, int paddleY){
+		pw.println(paddleX + " " + paddleY);
+	}
+	
+	public String readAllLocations(){
+		try{
+			return br.readLine();
+		}catch(IOException e){
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e.getMessage());
+			JOptionPane.showMessageDialog(null, "Error with Buffered Reader!", "ERROR", JOptionPane.ERROR_MESSAGE);
+			return null;
+		}
+	}
+	
+	public int getPlayerNumber(){return Integer.parseInt(playerNumber);}
 }

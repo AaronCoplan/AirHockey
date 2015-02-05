@@ -1,10 +1,13 @@
 package ackermanCoplanMuscianoAirHockey;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+
+import javax.swing.JOptionPane;
 
 public class FourPersonServer {
 
@@ -83,5 +86,43 @@ public class FourPersonServer {
 		pw1.flush();
 		pw2.flush();
 		pw3.flush();
+	}
+	
+	public void sendLocations(int hostPaddleX, int hostPaddleY, int opponent1PaddleX, int opponent1PaddleY, int opponent2PaddleX, int opponent2PaddleY, int opponent3PaddleX, int opponent3PaddleY, int puckX, int puckY){
+		
+		pw1.println(hostPaddleX + " " + hostPaddleY + " " + opponent1PaddleX + " " + opponent1PaddleY + " " + opponent2PaddleX + " " + opponent2PaddleY + " " + opponent3PaddleX + " " + opponent3PaddleY + " " + puckX + " " + puckY);
+	}
+	
+	public String readOpponent1Locations(){
+		try{
+			return br1.readLine();
+		}catch(IOException e){
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e.getMessage());
+			JOptionPane.showMessageDialog(null, "Error with Buffered Reader 1!", "ERROR", JOptionPane.ERROR_MESSAGE);
+			return null;
+		}
+	}
+	
+	public String readOpponent2Locations(){
+		try{
+			return br2.readLine();
+		}catch(IOException e){
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e.getMessage());
+			JOptionPane.showMessageDialog(null, "Error with Buffered Reader 2!", "ERROR", JOptionPane.ERROR_MESSAGE);
+			return null;
+		}
+	}
+	
+	public String readOpponent3Locations(){
+		try{
+			return br3.readLine();
+		}catch(IOException e){
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e.getMessage());
+			JOptionPane.showMessageDialog(null, "Error with Buffered Reader 3!", "ERROR", JOptionPane.ERROR_MESSAGE);
+			return null;
+		}
 	}
 }

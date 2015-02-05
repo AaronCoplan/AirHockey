@@ -102,9 +102,9 @@ public class Driver {
 		
 		switch(fourPlayerMenu.getButton())
 		{
-		case 'h': JOptionPane.showMessageDialog(null, "Server Game");
+		case 'h': new FourPersonServerGAME(fourPlayerMenu.getServer());
 		break;
-		case 'j': JOptionPane.showMessageDialog(null, "Client Game");
+		case 'j': new FourPersonClientGAME(fourPlayerMenu.getClient(), fourPlayerMenu.getClient().getPlayerNumber());
 		break;
 		default: JOptionPane.showMessageDialog(null, "Error with four-player menu!", "ERROR", JOptionPane.ERROR_MESSAGE);
 		break;
