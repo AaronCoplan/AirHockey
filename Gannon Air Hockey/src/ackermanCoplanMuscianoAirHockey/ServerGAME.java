@@ -131,9 +131,9 @@ public class ServerGAME {
 		frame.add(opponentGoal);
 		frame.add(userScore);
 		frame.add(opponentScore);
+		frame.add(midline);
 		frame.add(back);
 		frame.add(walls);
-		frame.add(midline);
 		frame.setSize(450, 600);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
