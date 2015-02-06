@@ -46,6 +46,7 @@ public class Driver {
 		 * AARON--Need to give people option to pick their color of paddle and goal
 		 * ACK--still need to do replay of last goal using recorder and playback classes (currently not implemented)
 		 * ACK--If possible, give options to change background image
+		 * BOUNDING NEEDS FIXED FOR TWO PLAYER
 		 */
 		
 		/* AI ISSUES
