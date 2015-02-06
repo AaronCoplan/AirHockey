@@ -278,7 +278,7 @@ public class ClientGAME {
 			int mouseY = e.getPoint().y;
 			
 			//makes sure that the paddle stays within the bounds of the game board
-			if((mouseX - userPaddle.getRadius()) >= 50 && (mouseX + userPaddle.getRadius()) <= 394 && (mouseY - userPaddle.getDiameter()) >= 50 && mouseY<(286-userPaddle.getRadius())){
+			if((mouseX - userPaddle.getRadius()) >= 50 && (mouseX + userPaddle.getRadius()) <= 394 && (mouseY - userPaddle.getDiameter()) >= 50 && mouseY<286){
 				frame.setCursor(blankCursor);
 				yourPaddleX = mouseX - userPaddle.getRadius();
 				yourPaddleY = mouseY - userPaddle.getDiameter();
