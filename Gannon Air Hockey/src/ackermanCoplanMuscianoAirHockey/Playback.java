@@ -1,6 +1,7 @@
 package ackermanCoplanMuscianoAirHockey; //NEEDS COMMENTED BUT CURRENTLY NOT IN USE
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,23 +14,24 @@ public class Playback {
 	private static JFrame frame;
 	private static Puck puck;
 	private static Paddle userPaddle, computerPaddle;
+	private static ArrayList<Integer>coords = new ArrayList<Integer>();
 	
 	public static void main(String[] args) throws Exception{
 		
-		Playback playback = new Playback();
+		Playback playback = new Playback(coords);
 		
-		File file = new File("U:\\GAME.txt");
-		Scanner sc = new Scanner(file);
+		//File file = new File("U:\\GAME.txt");
+		//Scanner sc = new Scanner(file);
 		playback.setUp();
 		
-		while(sc.hasNext()){
+		for(int x = 0;x<coords.size();x+=6){
 			
-			int puckX = Integer.parseInt(sc.nextLine());
-			int puckY = Integer.parseInt(sc.nextLine());
-			int userPaddleX = Integer.parseInt(sc.nextLine());
-			int userPaddleY = Integer.parseInt(sc.nextLine());
-			int opponentPaddleX = Integer.parseInt(sc.nextLine());
-			int opponentPaddleY = Integer.parseInt(sc.nextLine());
+			int puckX = coords.get(x);
+			int puckY = coords.get(x+1);
+			int userPaddleX = coords.get(x+2);
+			int userPaddleY = coords.get(x+3);
+			int opponentPaddleX = coords.get(x+4);
+			int opponentPaddleY = coords.get(x+5);
 			
 			puck.setBounds(puckX, puckY, 30, 30);
 			userPaddle.setBounds(userPaddleX, userPaddleY, 50, 50);
@@ -40,7 +42,14 @@ public class Playback {
 			}catch(InterruptedException e){e.printStackTrace();}
 		}
 		
-		sc.close();
+		//sc.close();
+	}
+	public Playback(ArrayList<Integer> coordinates)
+	{
+		for(int x = 0;x<coordinates.size();x++)
+		{
+			coords.add(coordinates.get(x));
+		}
 	}
 	
 	public void setUp(){
