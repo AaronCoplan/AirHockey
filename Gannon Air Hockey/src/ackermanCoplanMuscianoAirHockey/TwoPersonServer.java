@@ -14,7 +14,7 @@ public class TwoPersonServer {
 	private Socket clientSocket;
 	private PrintWriter pw;
 	private BufferedReader br;
-	private String yourName, opponentName;
+	private String yourName, opponentName, oppColorChoice;
 	
 	//constructor that takes in your name so it can be passed to the opponent
 	public TwoPersonServer(String yourName){

@@ -384,12 +384,12 @@ public class ComputerGAME {
 			puckDIRY = (puck.getCY() - computerPaddle.getCY()) / (Math.sqrt(((puck.getCX() - computerPaddle.getCX()) * (puck.getCX() - computerPaddle.getCX())) + ((puck.getCY() - computerPaddle.getCY()) * (puck.getCY() - computerPaddle.getCY()))));
 
 			//transfers paddle speed to the puck
-			if(opponentPaddleSpeed < 5){ //if the computer paddle speed is less than 5, add it to the current puck speed
+			if(opponentPaddleSpeed < 4){ //if the computer paddle speed is less than 5, add it to the current puck speed
 				puckSpeed += opponentPaddleSpeed;
-			}else if(userPaddleSpeed <= 15){ //otherwise, assign it as the puck speed
+			}else if(userPaddleSpeed <= 13){ //otherwise, assign it as the puck speed
 				puckSpeed = opponentPaddleSpeed;
-			}else{ //ensures the max puck speed is 15;
-				puckSpeed = 15;
+			}else{ //ensures the max puck speed is 13;
+				puckSpeed = 13;
 			}
 			puckStep(); //calls the puck step method so that the puck does not get stuck in the paddle
 		}

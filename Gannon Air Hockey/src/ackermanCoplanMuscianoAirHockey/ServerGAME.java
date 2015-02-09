@@ -332,24 +332,24 @@ public class ServerGAME {
 			
 			puckDIRX = (puck.getCX() - userPaddle.getCX()) / (Math.sqrt(((puck.getCX() - userPaddle.getCX()) * (puck.getCX() - userPaddle.getCX())) + ((puck.getCY() - userPaddle.getCY()) * (puck.getCY() - userPaddle.getCY()))));
 			puckDIRY = (puck.getCY() - userPaddle.getCY()) / (Math.sqrt(((puck.getCX() - userPaddle.getCX()) * (puck.getCX() - userPaddle.getCX())) + ((puck.getCY() - userPaddle.getCY()) * (puck.getCY() - userPaddle.getCY()))));
-			if(userPaddleSpeed < 5){
+			if(userPaddleSpeed < 4){
 				puckSpeed += userPaddleSpeed;
-			}else if(userPaddleSpeed <= 15){//could change 15
+			}else if(userPaddleSpeed <= 13){//could change 15
 				puckSpeed = userPaddleSpeed;
 			}else{
-				puckSpeed = 15;
+				puckSpeed = 13;
 			}
 			puckStep();
 		}else if(opponentPaddleCollision()){
 			
 			puckDIRX = (puck.getCX() - opponentPaddle.getCX()) / (Math.sqrt(((puck.getCX() - opponentPaddle.getCX()) * (puck.getCX() - opponentPaddle.getCX())) + ((puck.getCY() - opponentPaddle.getCY()) * (puck.getCY() - opponentPaddle.getCY()))));
 			puckDIRY = (puck.getCY() - opponentPaddle.getCY()) / (Math.sqrt(((puck.getCX() - opponentPaddle.getCX()) * (puck.getCX() - opponentPaddle.getCX())) + ((puck.getCY() - opponentPaddle.getCY()) * (puck.getCY() - opponentPaddle.getCY()))));
-			if(opponentPaddleSpeed < 5){
+			if(opponentPaddleSpeed < 4){
 				puckSpeed += opponentPaddleSpeed;
-			}else if(userPaddleSpeed <= 15){
+			}else if(userPaddleSpeed <= 13){
 				puckSpeed = opponentPaddleSpeed;
 			}else{
-				puckSpeed = 15;
+				puckSpeed = 13;
 			}
 			puckStep();
 		}

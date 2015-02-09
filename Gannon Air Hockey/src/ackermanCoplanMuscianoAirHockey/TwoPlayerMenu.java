@@ -102,7 +102,7 @@ public class TwoPlayerMenu {
 				menuFrame.update(menuFrame.getGraphics());
 				
 				//server waits for connection
-				server.connect();
+				server.connect(colorChoice);
 				
 				//display the opponents name that you are connected to
 				menuFrame.setTitle("Connected!");
