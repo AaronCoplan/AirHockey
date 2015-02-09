@@ -81,12 +81,7 @@ public class ServerGAME {
 		userPaddle.setBounds(222-userPaddle.getRadius(), 286+200-userPaddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
 		
 		opponentPaddle = new Paddle();
-		ImageIcon opponentPaddleIcon;
-		if(colorChoice.equals("Blue")){
-			opponentPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/redPaddle.png"));
-		}else{
-			opponentPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/bluePaddle.png"));
-		}
+		ImageIcon opponentPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/" + server.getOppColorChoice().toLowerCase() + "Paddle.png"));
 		opponentPaddle.setIcon(opponentPaddleIcon);
 		opponentPaddle.setBounds(222-opponentPaddle.getRadius(), 286-200-opponentPaddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
 		
@@ -110,10 +105,19 @@ public class ServerGAME {
 		
 		opponentGoal = new JLabel();
 		opponentGoal.setOpaque(true);
-		if(colorChoice.equals("Blue")){
-			opponentGoal.setBackground(Color.red);
-		}else{
-			opponentGoal.setBackground(Color.blue);
+		switch(server.getOppColorChoice())
+		{
+		case "Red": opponentGoal.setBackground(Color.red);
+		break;
+		case "Orange": opponentGoal.setBackground(new Color(234, 47, 1));
+		break;
+		case "Green": opponentGoal.setBackground(Color.green);
+		break;
+		case "Pink": opponentGoal.setBackground(new Color(237, 33, 121));
+		break;	
+		case "Purple": opponentGoal.setBackground(Color.magenta);
+		break;	
+		case "Blue": opponentGoal.setBackground(Color.blue);
 		}
 		opponentGoal.setBounds(157, 0, 130, 50);
 		
@@ -140,10 +144,19 @@ public class ServerGAME {
 		opponentScore = new JLabel(server.getOpponentName() + ": " + oppNumGoals, JLabel.CENTER);
 		opponentScore.setOpaque(false);
 		opponentScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
-		if(colorChoice.equals("Red")){	
-			opponentScore.setForeground(Color.blue);
-		}else{
-			opponentScore.setForeground(Color.red);
+		switch(server.getOppColorChoice())
+		{
+		case "Red": opponentScore.setBackground(Color.red);
+		break;
+		case "Orange": opponentScore.setBackground(new Color(234, 47, 1));
+		break;
+		case "Green": opponentScore.setBackground(Color.green);
+		break;
+		case "Pink": opponentScore.setBackground(new Color(237, 33, 121));
+		break;	
+		case "Purple": opponentScore.setBackground(Color.magenta);
+		break;	
+		case "Blue": opponentScore.setBackground(Color.blue);
 		}
 		opponentScore.setBounds(15, 10, 90, 30);
 		

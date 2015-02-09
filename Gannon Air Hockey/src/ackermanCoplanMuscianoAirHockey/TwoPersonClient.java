@@ -63,6 +63,7 @@ public class TwoPersonClient {
 	//names are displayed alongside the scores
 	public String getYourName(){return yourName;}
 	public String getOpponentName(){return opponentName;}
+	public String getOppColorChoice(){return opponentColor;}
 	
 	//method for the menu to determine if the client has succesfully found a host yet
 	public boolean isConnected(){return this.connected;}

@@ -47,6 +47,7 @@ public class TwoPersonServer {
 	//names are displayed alongside the scores
 	public String getYourName(){return yourName;}
 	public String getOpponentName(){return opponentName;}
+	public String getOppColorChoice(){return oppColorChoice;}
 	
 	//method for sending positions of components to client in string form
 	public void send(String input){pw.println(input);}
