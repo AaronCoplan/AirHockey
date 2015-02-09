@@ -24,7 +24,7 @@ public class Playback {
 		//Scanner sc = new Scanner(file);
 		playback.setUp();
 		
-		for(int x = 0;x<coords.size();x+=6){
+		for(int x = coords.size()-600;x<coords.size();x+=6){
 			
 			int puckX = coords.get(x);
 			int puckY = coords.get(x+1);
@@ -67,6 +67,7 @@ public class Playback {
 		userPaddle = new Paddle();
 		ImageIcon userPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/redPaddle.png"));
 		userPaddle.setIcon(userPaddleIcon);
+		
 		userPaddle.setBounds(222-userPaddle.getRadius(), 286+200-userPaddle.getRadius(), 50 ,50);
 
 		computerPaddle = new Paddle();
