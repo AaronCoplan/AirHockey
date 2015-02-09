@@ -18,7 +18,7 @@ public class TwoPersonClient {
 	private PrintWriter pw;
 	private String[] IPs;
 	private boolean connected = false;
-	private String yourName, opponentName;
+	private String yourName, opponentName, opponentColor;
 	private final int timeout = 100;
 	
 	//constructor that takes in list of ips to attempt to connect to
@@ -29,7 +29,7 @@ public class TwoPersonClient {
 	}
 	
 	//method to connect to the hosting player (server)
-	public void connect(){
+	public void connect(String colorChoice){
 		
 		//tries each ip in the array using the for loop using a 2.5 second timeout
 		//if an ip works, it breaks the for loop, and sets the connected boolean to true
@@ -43,6 +43,8 @@ public class TwoPersonClient {
 					br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 					opponentName = br.readLine();
 					pw.println(yourName);
+					opponentColor = br.readLine();
+					pw.println(colorChoice);
 					this.connected = true;
 					System.out.println("Successfully connected to: " + IPs[x]);
 					break;

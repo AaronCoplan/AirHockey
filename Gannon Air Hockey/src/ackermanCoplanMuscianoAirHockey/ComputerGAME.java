@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 //true width is 444, true height is 572
 public class ComputerGAME {
 
+	private String colorChoice;
 	//Global variables for frame and its visual components
 	private JFrame frame;
 	private Puck puck;
@@ -43,10 +44,11 @@ public class ComputerGAME {
 	private final double FRICTION = 1.0045, ENERGY_TRANSFER = 1.00023;
 	private final int PADDLE_DIAMETER = 50;
 	
-	public ComputerGAME(){
+	public ComputerGAME(String colorChoice){
 		
 		//recorder = new Recorder("U:\\GAME.txt");
 		ai = new AI(4); //creates a new AI with the difficulty parameter
+		this.colorChoice = colorChoice;
 		setUp(); //calls the setUp method, which creates and fills the JFrame with its visual components
 	}
 	
@@ -86,42 +88,80 @@ public class ComputerGAME {
 		
 		//sets up the user's paddle with its image png
 		userPaddle = new Paddle();
-		ImageIcon userPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/redPaddle.png"));
+		ImageIcon userPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/" + colorChoice.toLowerCase() + "Paddle.png"));
 		userPaddle.setIcon(userPaddleIcon);
 		userPaddle.setBounds(222-userPaddle.getRadius(), 286+200-userPaddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
 		
 		//sets up the computer's paddle with its image png
 		computerPaddle = new Paddle();
-		ImageIcon opponentPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/bluePaddle.png"));
+		ImageIcon opponentPaddleIcon;
+		if(colorChoice.equals("Blue")){
+			opponentPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/redPaddle.png"));
+		}else{
+			opponentPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/bluePaddle.png"));
+		}
 		computerPaddle.setIcon(opponentPaddleIcon);
 		computerPaddle.setBounds(222-computerPaddle.getRadius(), 286-200-computerPaddle.getRadius(), PADDLE_DIAMETER, PADDLE_DIAMETER);
 		
 		//sets up the user goal in the proper location
 		userGoal = new JLabel();
 		userGoal.setOpaque(true);
-		userGoal.setBackground(Color.red);
+		switch(colorChoice)
+		{
+		case "Red": userGoal.setBackground(Color.red);
+		break;
+		case "Orange": userGoal.setBackground(new Color(234, 47, 1));
+		break;
+		case "Green": userGoal.setBackground(Color.green);
+		break;
+		case "Pink": userGoal.setBackground(new Color(237, 33, 121));
+		break;	
+		case "Purple": userGoal.setBackground(Color.magenta);
+		break;	
+		case "Blue": userGoal.setBackground(Color.blue);
+		}
 		userGoal.setBounds(157, 522, 130, 50);
 		
 		//sets up the opponent goal in the proper location
 		opponentGoal = new JLabel();
 		opponentGoal.setOpaque(true);
-		opponentGoal.setBackground(Color.blue);
+		if(colorChoice.equals("Blue")){
+			opponentGoal.setBackground(Color.red);
+		}else{
+			opponentGoal.setBackground(Color.blue);
+		}
 		opponentGoal.setBounds(157, 0, 130, 50);
 		
 		//sets up the JLabel to represent your score
 		userScore = new JLabel("You: " + yourNumGoals, JLabel.CENTER);
 		userScore.setOpaque(false);
 		userScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
-		userScore.setForeground(Color.red);
-		userScore.setBackground(Color.black);
+		switch(colorChoice)
+		{
+		case "Red": userScore.setForeground(Color.red);
+		break;
+		case "Orange": userScore.setForeground(new Color(234, 47, 1));
+		break;
+		case "Green": userScore.setForeground(Color.green);
+		break;
+		case "Pink": userScore.setForeground(new Color(237, 33, 121));
+		break;	
+		case "Purple": userScore.setForeground(Color.magenta);
+		break;
+		case "Blue": userScore.setForeground(Color.blue);
+		break;
+		}
 		userScore.setBounds(15, 532, 90, 30);
 		
 		//sets up the JLabel to represent the computer's score
 		opponentScore = new JLabel("Computer: " + oppNumGoals, JLabel.CENTER);
 		opponentScore.setOpaque(false);
 		opponentScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
-		opponentScore.setForeground(Color.blue);
-		opponentScore.setBackground(Color.black);
+		if(colorChoice.equals("Blue")){	
+			opponentScore.setForeground(Color.red);
+		}else{
+			opponentScore.setForeground(Color.blue);
+		}
 		opponentScore.setBounds(15, 10, 90, 30);
 		
 		//sets up the wooden board background with its image png

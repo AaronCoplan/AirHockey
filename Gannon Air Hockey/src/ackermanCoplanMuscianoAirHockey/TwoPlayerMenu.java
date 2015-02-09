@@ -3,6 +3,7 @@ package ackermanCoplanMuscianoAirHockey; //COMMENTED
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+
 import java.awt.GridLayout;
 import java.awt.Font;
 import java.awt.Color;
@@ -20,6 +21,7 @@ public class TwoPlayerMenu {
 	private char button = '-';
 	private TwoPersonServer server;
 	private TwoPersonClient client;
+	private String colorChoice;
 	
 	public TwoPlayerMenu(){
 		
@@ -68,6 +70,7 @@ public class TwoPlayerMenu {
 	public char getButton(){return button;}
 	public TwoPersonServer getServer(){return this.server;}
 	public TwoPersonClient getClient(){return this.client;}
+	public String getColorChoice(){return colorChoice;}
 	
 	public void startIPConfiguration(){
 		//instantiates the pinger then generates the necessary ips
@@ -81,6 +84,9 @@ public class TwoPlayerMenu {
 		public void actionPerformed(ActionEvent e){
 			
 			if(e.getSource().equals(host)){ //if they click host, do the following
+				
+				String[] colorOptions = {"Red", "Orange", "Green", "Pink", "Purple", "Blue"};
+				colorChoice = (String)JOptionPane.showInputDialog(null, "Choose a color for your paddle and goal:", "Choose a Color", JOptionPane.QUESTION_MESSAGE, null, colorOptions, colorOptions[0]);
 				
 				//gets your name using joptionpane and passes it into the server
 				String yourName = JOptionPane.showInputDialog(null, "Enter your name:", "Name", JOptionPane.QUESTION_MESSAGE);
@@ -116,6 +122,9 @@ public class TwoPlayerMenu {
 				
 			}else if(e.getSource().equals(join)){ //if they click join, do the following
 				
+				String[] colorOptions = {"Red", "Orange", "Green", "Pink", "Purple", "Blue"};
+				colorChoice = (String)JOptionPane.showInputDialog(null, "Choose a color for your paddle and goal:", "Choose a Color", JOptionPane.QUESTION_MESSAGE, null, colorOptions, colorOptions[0]);
+				
 				//gets your name using JOptionPane and passes it into the client
 				String yourName = JOptionPane.showInputDialog(null, "Enter your name:", "Name", JOptionPane.QUESTION_MESSAGE);
 				client = new TwoPersonClient(IPs, yourName);
@@ -130,7 +139,7 @@ public class TwoPlayerMenu {
 				menuFrame.update(menuFrame.getGraphics());
 				
 				//client connects to server
-				client.connect();
+				client.connect(colorChoice);
 				
 				//if it successfully connects, display the connected screen with opponent info
 				//then waits 5 seconds, closes, the menu, and the driver class starts the game

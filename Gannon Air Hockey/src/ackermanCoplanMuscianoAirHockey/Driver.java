@@ -60,7 +60,9 @@ public class Driver {
 	
 	public static void singlePlayer(){
 		
-		new ComputerGAME();
+		String[] colorOptions = {"Red", "Orange", "Green", "Pink", "Purple", "Blue"};
+		String colorChoice = (String)JOptionPane.showInputDialog(null, "Choose a color for your paddle and goal:", "Choose a Color", JOptionPane.QUESTION_MESSAGE, null, colorOptions, colorOptions[0]);
+		new ComputerGAME(colorChoice);
 		System.exit(0);
 	}
 	
@@ -76,14 +78,16 @@ public class Driver {
 				Thread.sleep(100);
 			}catch(InterruptedException e){}
 		}
+		
+		String colorChoice = twoPlayerMenu.getColorChoice();
 
 		//figures out which button you have pressed and acts accordingly
 
 		switch(twoPlayerMenu.getButton())
 		{
-		case 'h': new ServerGAME(twoPlayerMenu.getServer()); //host was selected, it starts the ServerGAME using the server from within the menu class
+		case 'h': new ServerGAME(twoPlayerMenu.getServer(), colorChoice); //host was selected, it starts the ServerGAME using the server from within the menu class
 		break;
-		case 'j': new ClientGAME(twoPlayerMenu.getClient()); //join was selected, it starts the ClientGAME code using the already connected client from within the menu class
+		case 'j': new ClientGAME(twoPlayerMenu.getClient(), colorChoice); //join was selected, it starts the ClientGAME code using the already connected client from within the menu class
 		break;
 		default: JOptionPane.showMessageDialog(null, "Error with two-player menu!", "ERROR", JOptionPane.ERROR_MESSAGE);
 		break;
