@@ -27,15 +27,6 @@ public class Driver {
 		break;
 		}
 		
-		/* DONE
-		 * Done--Set all catch statements to JOptionPanes
-		 * Done--make the goals bigger
-		 * Done--teach the computer to account for the puck bouncing off of walls
-		 * Done--bound people to their half
-		 * Done--draw a midline
-		 * Done--bound the computer to the game board and its own half
-		 */
-		
 		/* FOUR PERSON AND MULTIPLAYER IN GENERAL
 		 * AARON--The entire four player game needs written -- a lot of code can be copied from the two person classes
 		 * AARON--Also need to catch socket exceptions for when opponent disconnects
@@ -43,18 +34,8 @@ public class Driver {
 		 */
 		
 		/* FEATURES TO ADD
-		 * AARON--Need to give people option to pick their color of paddle and goal
-		 * ACK--still need to do replay of last goal using recorder and playback classes (currently not implemented)
-		 * ACK--If possible, give options to change background image
-		 */
-		
-		/* AI ISSUES
-		 * 
-		 */
-		
-		/* GAMEPLAY ISSUES
-		 * AARON--need to change JOptionPane that pops up after game ends
-		 * ACK--Change the max speed of the puck (make it lower?)
+		 * AARON--add settings menu from main menu instead of having so many JOptionPanes
+		 * AARON--If possible, give options to change background image(put in menu)
 		 */
 	}
 	

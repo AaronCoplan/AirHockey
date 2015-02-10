@@ -241,10 +241,8 @@ public class ClientGAME {
 			}
 			
 			if(input.equals("User Goal")){ //if the client reads in that it's a user goal, call the goal method with the parameter of opponent goal
-				System.out.println("USER GOAL");
 				goal(opponentGoal);
 			}else if(input.equals("Opponent Goal")){ //if the client reads in that it's an opponent goal, call the goal method with the parameter of user goal
-				System.out.println("OPPONENT GOAL");
 				goal(userGoal);
 			}else{ //if its not a goal, parse the string for the puck x and y locations and user paddle x and y locations
 				//parses and substrings to get puck x and y
