@@ -81,12 +81,12 @@ public class Playback {
 		JLabel userGoal = new JLabel();
 		userGoal.setOpaque(true);
 		userGoal.setBackground(Color.red);
-		userGoal.setBounds(172, 522, 100, 50);
+		userGoal.setBounds(157, 522, 130, 50);
 
 		JLabel opponentGoal = new JLabel();
 		opponentGoal.setOpaque(true);
 		opponentGoal.setBackground(Color.blue);
-		opponentGoal.setBounds(172, 0, 100, 50);
+		opponentGoal.setBounds(157, 0, 130, 50);
 
 		JLabel userScore = new JLabel("You: ", JLabel.CENTER);
 		userScore.setOpaque(true);
@@ -126,6 +126,7 @@ public class Playback {
 		frame.add(opponentGoal);
 		frame.add(userScore);
 		frame.add(opponentScore);
+		frame.add(midline);
 		frame.add(board);
 		frame.add(walls);
 		frame.setSize(450, 600);
