@@ -84,7 +84,7 @@ public class ClientGAME {
 		//sets up the user goal (needs a png)
 		userGoal = new JLabel();
 		userGoal.setOpaque(true);
-		switch(colorChoice)
+		switch(client.getOppColorChoice())
 		{
 		case "Red": userGoal.setBackground(Color.red);
 		break;
@@ -105,17 +105,17 @@ public class ClientGAME {
 		opponentGoal.setOpaque(true);
 		switch(colorChoice)
 		{
-		case "Red": opponentGoal.setForeground(Color.red);
+		case "Red": opponentGoal.setBackground(Color.red);
 		break;
-		case "Orange": opponentGoal.setForeground(new Color(234, 47, 1));
+		case "Orange": opponentGoal.setBackground(new Color(234, 47, 1));
 		break;
-		case "Green": opponentGoal.setForeground(Color.green);
+		case "Green": opponentGoal.setBackground(Color.green);
 		break;
-		case "Pink": opponentGoal.setForeground(new Color(237, 33, 121));
+		case "Pink": opponentGoal.setBackground(new Color(237, 33, 121));
 		break;	
-		case "Purple": opponentGoal.setForeground(Color.magenta);
+		case "Purple": opponentGoal.setBackground(Color.magenta);
 		break;
-		case "Blue": opponentGoal.setForeground(Color.blue);
+		case "Blue": opponentGoal.setBackground(Color.blue);
 		break;
 		}
 		opponentGoal.setBounds(157, 0, 130, 50);
