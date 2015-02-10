@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 //true width is 444, true height is 572
 public class ComputerGAME {
 
-	private String colorChoice;
+	private String colorChoice, oppColorChoice;
 	//Global variables for frame and its visual components
 	private JFrame frame;
 	private Puck puck;
@@ -264,8 +264,16 @@ public class ComputerGAME {
 				recorder.record(puckX,puckY,userPaddleX, userPaddleY, computerPaddle.getX(), computerPaddle.getY());
 			}
 		}
+		if(colorChoice.equals("Blue"))
+		{
+			oppColorChoice = "Red";
+		}
+		else
+		{
+			oppColorChoice = "Blue";
+		}
 		
-		Playback p = new Playback(recorder.getLocations());
+		Playback p = new Playback(recorder.getLocations(), colorChoice, oppColorChoice);
 		p.play();
 		
 		JOptionPane.showMessageDialog(null, "Game Over!"); //once someone reaches seven, display the JOptionPane saying game over

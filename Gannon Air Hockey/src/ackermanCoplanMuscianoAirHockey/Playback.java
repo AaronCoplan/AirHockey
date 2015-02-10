@@ -47,7 +47,7 @@ public class Playback {
 	
 		
 		
-	public Playback(ArrayList<Integer> coordinates)
+	public Playback(ArrayList<Integer> coordinates, String userColor, String oppColor)
 	{
 		for(int x = 0;x<coordinates.size();x++)
 		{
