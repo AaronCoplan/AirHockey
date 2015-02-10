@@ -2,24 +2,29 @@ package ackermanCoplanMuscianoAirHockey; //NEEDS COMMENTED
 
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseEvent;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 import java.awt.Point;
 import java.awt.Font;
 import java.awt.Robot;
 import java.awt.Cursor;
 import java.awt.AWTException;
 import java.awt.image.BufferedImage;
+
 import javax.swing.ImageIcon;
+
 import java.awt.Toolkit;
 import java.awt.Color;
 import java.awt.Dimension;
+
 import javax.swing.JOptionPane;
 
 //true width is 444, true height is 572
 public class ServerGAME {
 
-	private String colorChoice;
+	private String colorChoice, oppColorChoice;
 	private JFrame frame;
 	private Puck puck;
 	private JLabel userGoal, opponentGoal, userScore, opponentScore;
@@ -105,7 +110,8 @@ public class ServerGAME {
 		
 		opponentGoal = new JLabel();
 		opponentGoal.setOpaque(true);
-		switch(server.getOppColorChoice())
+		oppColorChoice = server.getOppColorChoice();
+		switch(oppColorChoice)
 		{
 		case "Red": opponentGoal.setBackground(Color.red);
 		break;
@@ -144,7 +150,7 @@ public class ServerGAME {
 		opponentScore = new JLabel(server.getOpponentName() + ": " + oppNumGoals, JLabel.CENTER);
 		opponentScore.setOpaque(false);
 		opponentScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
-		switch(server.getOppColorChoice())
+		switch(oppColorChoice)
 		{
 		case "Red": opponentScore.setForeground(Color.red);
 		break;
@@ -204,7 +210,7 @@ public class ServerGAME {
 	}
 	
 	public void run(){
-		
+		Recorder recorder = new Recorder(" ");
 		while(yourNumGoals < 7 && oppNumGoals < 7){
 			
 			//read data
@@ -248,7 +254,15 @@ public class ServerGAME {
 			try{
 				Thread.sleep(10);
 			}catch(InterruptedException e){}
+			
+			if(yourNumGoals==5||oppNumGoals==5)
+			{
+				recorder.record(puckX,puckY,userPaddleX, userPaddleY, opponentPaddle.getX(), opponentPaddle.getY());
+			}
 		}
+		
+		Playback p = new Playback(recorder.getLocations(), colorChoice, oppColorChoice);
+		p.play();
 		
 		JOptionPane.showMessageDialog(null, "Game Over!");
 	}
