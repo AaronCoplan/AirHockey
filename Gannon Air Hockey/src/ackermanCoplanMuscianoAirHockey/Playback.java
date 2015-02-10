@@ -15,6 +15,7 @@ public class Playback {
 	private static Puck puck;
 	private static Paddle userPaddle, computerPaddle;
 	private static ArrayList<Integer>coords = new ArrayList<Integer>();
+	private static String userColor, oppColor;
 	
 	public void play()
 	{
@@ -53,6 +54,8 @@ public class Playback {
 		{
 			coords.add(coordinates.get(x));
 		}
+		this.userColor = userColor;
+		this.oppColor = oppColor;
 	}
 	
 	public void setUp(){
@@ -80,7 +83,20 @@ public class Playback {
 
 		JLabel userGoal = new JLabel();
 		userGoal.setOpaque(true);
-		userGoal.setBackground(Color.red);
+		switch(userColor)
+		{
+		case "Red": userGoal.setBackground(Color.red);
+		break;
+		case "Orange": userGoal.setBackground(new Color(234, 47, 1));
+		break;
+		case "Green": userGoal.setBackground(Color.green);
+		break;
+		case "Pink": userGoal.setBackground(new Color(237, 33, 121));
+		break;	
+		case "Purple": userGoal.setBackground(Color.magenta);
+		break;	
+		case "Blue": userGoal.setBackground(Color.blue);
+		}
 		userGoal.setBounds(157, 522, 130, 50);
 
 		JLabel opponentGoal = new JLabel();
@@ -91,8 +107,21 @@ public class Playback {
 		JLabel userScore = new JLabel("You: ", JLabel.CENTER);
 		userScore.setOpaque(true);
 		userScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
-		userScore.setForeground(Color.red);
-		userScore.setBackground(Color.black);
+		switch(userColor)
+		{
+		case "Red": userScore.setForeground(Color.red);
+		break;
+		case "Orange": userScore.setForeground(new Color(234, 47, 1));
+		break;
+		case "Green": userScore.setForeground(Color.green);
+		break;
+		case "Pink": userScore.setForeground(new Color(237, 33, 121));
+		break;	
+		case "Purple": userScore.setForeground(Color.magenta);
+		break;
+		case "Blue": userScore.setForeground(Color.blue);
+		break;
+		}
 		userScore.setBounds(15, 532, 90, 30);
 
 		JLabel opponentScore = new JLabel("Computer: ", JLabel.CENTER);
