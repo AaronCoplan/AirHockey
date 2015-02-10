@@ -146,17 +146,17 @@ public class ServerGAME {
 		opponentScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
 		switch(server.getOppColorChoice())
 		{
-		case "Red": opponentScore.setBackground(Color.red);
+		case "Red": opponentScore.setForeground(Color.red);
 		break;
-		case "Orange": opponentScore.setBackground(new Color(234, 47, 1));
+		case "Orange": opponentScore.setForeground(new Color(234, 47, 1));
 		break;
-		case "Green": opponentScore.setBackground(Color.green);
+		case "Green": opponentScore.setForeground(Color.green);
 		break;
-		case "Pink": opponentScore.setBackground(new Color(237, 33, 121));
+		case "Pink": opponentScore.setForeground(new Color(237, 33, 121));
 		break;	
-		case "Purple": opponentScore.setBackground(Color.magenta);
+		case "Purple": opponentScore.setForeground(Color.magenta);
 		break;	
-		case "Blue": opponentScore.setBackground(Color.blue);
+		case "Blue": opponentScore.setForeground(Color.blue);
 		}
 		opponentScore.setBounds(15, 10, 90, 30);
 		
