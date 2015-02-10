@@ -2,6 +2,7 @@ package ackermanCoplanMuscianoAirHockey; //COMMENTED
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 import java.awt.Cursor;
 import java.awt.Robot;
 import java.awt.AWTException;
@@ -10,15 +11,18 @@ import java.awt.Toolkit;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseEvent;
 import java.awt.Point;
+
 import javax.swing.ImageIcon;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Dimension;
+
 import javax.swing.JOptionPane;
 
 public class ClientGAME {
 
-	private String colorChoice;
+	private String colorChoice, oppColorChoice;
 	//global variables
 	private JFrame frame;
 	private Puck puck;
@@ -124,7 +128,8 @@ public class ClientGAME {
 		userScore = new JLabel(client.getOpponentName() + ": " + yourNumGoals, JLabel.CENTER);
 		userScore.setOpaque(false);
 		userScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
-		switch(client.getOppColorChoice())
+		oppColorChoice = client.getOppColorChoice();
+		switch(oppColorChoice)
 		{
 		case "Red": userScore.setForeground(Color.red);
 		break;
@@ -214,7 +219,7 @@ public class ClientGAME {
 
 	//this is the game loop
 	public void run(){
-		
+		Recorder recorder = new Recorder(" ");
 		//these ints dont need to be global because they're read in from the client each time in the loop
 		int puckX = 0, puckY = 0, userPaddleX = 0, userPaddleY = 0; 
 		
@@ -266,7 +271,15 @@ public class ClientGAME {
 			try{
 				Thread.sleep(10);
 			}catch(InterruptedException e){}
+			
+			if(yourNumGoals==5||oppNumGoals==5)
+			{
+				recorder.record(puckX,puckY,userPaddleX, userPaddleY, opponentPaddle.getX(), opponentPaddle.getY());
+			}
 		}
+		
+		Playback p = new Playback(recorder.getLocations(), colorChoice, oppColorChoice);
+		p.play();
 		
 		JOptionPane.showMessageDialog(null, "Game Over!"); //once someone scores 7, show a JOptionPane that says game over
 	}
