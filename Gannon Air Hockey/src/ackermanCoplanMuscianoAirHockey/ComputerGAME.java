@@ -220,7 +220,7 @@ public class ComputerGAME {
 	
 	//GAME LOOP
 	public void run(){
-		
+		Recorder recorder = new Recorder(" ");
 		while(yourNumGoals < 7 && oppNumGoals < 7){ //the game runs until someone reaches seven goals
 			
 			ai.move(computerPaddle, puck, puckDIRX, puckDIRY, puckSpeed, attackmark); //ai moves the computer paddle
@@ -258,7 +258,15 @@ public class ComputerGAME {
 			try{
 				Thread.sleep(10);
 			}catch(InterruptedException e){}
+			
+			if(yourNumGoals==6||oppNumGoals==6)
+			{
+				recorder.record(puckX,puckY,userPaddleX, userPaddleY, computerPaddle.getX(), computerPaddle.getY());
+			}
 		}
+		
+		Playback p = new Playback(recorder.getLocations());
+		p.play();
 		
 		JOptionPane.showMessageDialog(null, "Game Over!"); //once someone reaches seven, display the JOptionPane saying game over
 	}

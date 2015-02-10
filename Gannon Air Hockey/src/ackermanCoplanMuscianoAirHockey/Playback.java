@@ -16,13 +16,13 @@ public class Playback {
 	private static Paddle userPaddle, computerPaddle;
 	private static ArrayList<Integer>coords = new ArrayList<Integer>();
 	
-	public static void main(String[] args) throws Exception{
-		
-		Playback playback = new Playback(coords);
+	public void play()
+	{
+			
 		
 		//File file = new File("U:\\GAME.txt");
 		//Scanner sc = new Scanner(file);
-		playback.setUp();
+		setUp();
 		
 		for(int x = coords.size()-600;x<coords.size();x+=6){
 			
@@ -44,6 +44,9 @@ public class Playback {
 		
 		//sc.close();
 	}
+	
+		
+		
 	public Playback(ArrayList<Integer> coordinates)
 	{
 		for(int x = 0;x<coordinates.size();x++)
