@@ -70,19 +70,14 @@ public class ClientGAME {
 
 		//sets up the user paddle, including its png
 		userPaddle = new Paddle();
-		ImageIcon userPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/" + colorChoice.toLowerCase() + "Paddle.png"));
+		ImageIcon userPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/" + client.getOppColorChoice().toLowerCase() + "Paddle.png"));
 		userPaddle.setIcon(userPaddleIcon);
 		userPaddle.setBounds(222-userPaddle.getRadius(), 286+200-userPaddle.getRadius(), 50, 50);
 
 		//sets up the opponent paddle, including its png
 		//THE PERSON PLAYING THE ClientGAME IS THE OPPONENT PADDLE
 		opponentPaddle = new Paddle();
-		ImageIcon opponentPaddleIcon;
-		if(colorChoice.equals("Blue")){
-			opponentPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/redPaddle.png"));
-		}else{
-			opponentPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/bluePaddle.png"));
-		}
+		ImageIcon opponentPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/" + colorChoice.toLowerCase() + "Paddle.png"));
 		opponentPaddle.setIcon(opponentPaddleIcon);
 		opponentPaddle.setBounds(222-opponentPaddle.getRadius(), 286-255-opponentPaddle.getRadius(), 50, 50);
 
@@ -108,10 +103,20 @@ public class ClientGAME {
 		//sets up the opponent goal (needs a png)
 		opponentGoal = new JLabel();
 		opponentGoal.setOpaque(true);
-		if(colorChoice.equals("Blue")){
-			opponentGoal.setBackground(Color.red);
-		}else{
-			opponentGoal.setBackground(Color.blue);
+		switch(colorChoice)
+		{
+		case "Red": opponentGoal.setForeground(Color.red);
+		break;
+		case "Orange": opponentGoal.setForeground(new Color(234, 47, 1));
+		break;
+		case "Green": opponentGoal.setForeground(Color.green);
+		break;
+		case "Pink": opponentGoal.setForeground(new Color(237, 33, 121));
+		break;	
+		case "Purple": opponentGoal.setForeground(Color.magenta);
+		break;
+		case "Blue": opponentGoal.setForeground(Color.blue);
+		break;
 		}
 		opponentGoal.setBounds(157, 0, 130, 50);
 
@@ -119,7 +124,7 @@ public class ClientGAME {
 		userScore = new JLabel(client.getOpponentName() + ": " + yourNumGoals, JLabel.CENTER);
 		userScore.setOpaque(false);
 		userScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
-		switch(colorChoice)
+		switch(client.getOppColorChoice())
 		{
 		case "Red": userScore.setForeground(Color.red);
 		break;
@@ -140,10 +145,20 @@ public class ClientGAME {
 		opponentScore = new JLabel(client.getYourName() + ": " + oppNumGoals, JLabel.CENTER);
 		opponentScore.setOpaque(false);
 		opponentScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
-		if(colorChoice.equals("Red")){	
-			opponentScore.setForeground(Color.blue);
-		}else{
-			opponentScore.setForeground(Color.red);
+		switch(colorChoice)
+		{
+		case "Red": opponentScore.setForeground(Color.red);
+		break;
+		case "Orange": opponentScore.setForeground(new Color(234, 47, 1));
+		break;
+		case "Green": opponentScore.setForeground(Color.green);
+		break;
+		case "Pink": opponentScore.setForeground(new Color(237, 33, 121));
+		break;	
+		case "Purple": opponentScore.setForeground(Color.magenta);
+		break;
+		case "Blue": opponentScore.setForeground(Color.blue);
+		break;
 		}
 		opponentScore.setBounds(15, 10, 90, 30);
 		
