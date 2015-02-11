@@ -33,6 +33,7 @@ public class ClientGAME {
 	private int yourPaddleX, yourPaddleY;
 	private Cursor blankCursor;
 	
+	
 	private Robot robot;
 	private TwoPersonClient client;
 
@@ -272,7 +273,7 @@ public class ClientGAME {
 				Thread.sleep(10);
 			}catch(InterruptedException e){}
 			
-			if(yourNumGoals==5||oppNumGoals==5)
+			if(yourNumGoals>=5||oppNumGoals>=5)
 			{
 				recorder.record(puckX,puckY,userPaddleX, userPaddleY, opponentPaddle.getX(), opponentPaddle.getY());
 			}

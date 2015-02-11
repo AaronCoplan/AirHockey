@@ -259,7 +259,7 @@ public class ComputerGAME {
 				Thread.sleep(10);
 			}catch(InterruptedException e){}
 			
-			if(yourNumGoals==5||oppNumGoals==5)
+			if(yourNumGoals>=5||oppNumGoals>=5)
 			{
 				recorder.record(puckX,puckY,userPaddleX, userPaddleY, computerPaddle.getX(), computerPaddle.getY());
 			}
