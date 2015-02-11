@@ -99,7 +99,7 @@ public class ClientGAME {
 		break;
 		case "Pink": userGoal.setBackground(new Color(237, 33, 121));
 		break;	
-		case "Purple": userGoal.setBackground(Color.magenta);
+		case "Purple": userGoal.setBackground(new Color(151, 49, 154));
 		break;	
 		case "Blue": userGoal.setBackground(Color.blue);
 		}
@@ -118,7 +118,7 @@ public class ClientGAME {
 		break;
 		case "Pink": opponentGoal.setBackground(new Color(237, 33, 121));
 		break;	
-		case "Purple": opponentGoal.setBackground(Color.magenta);
+		case "Purple": opponentGoal.setBackground(new Color(151, 49, 154));
 		break;
 		case "Blue": opponentGoal.setBackground(Color.blue);
 		break;
@@ -140,7 +140,7 @@ public class ClientGAME {
 		break;
 		case "Pink": userScore.setForeground(new Color(237, 33, 121));
 		break;	
-		case "Purple": userScore.setForeground(Color.magenta);
+		case "Purple": userScore.setForeground(new Color(151, 49, 154));
 		break;
 		case "Blue": userScore.setForeground(Color.blue);
 		break;
@@ -161,7 +161,7 @@ public class ClientGAME {
 		break;
 		case "Pink": opponentScore.setForeground(new Color(237, 33, 121));
 		break;	
-		case "Purple": opponentScore.setForeground(Color.magenta);
+		case "Purple": opponentScore.setForeground(new Color(151, 49, 154));
 		break;
 		case "Blue": opponentScore.setForeground(Color.blue);
 		break;
