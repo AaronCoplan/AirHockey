@@ -48,14 +48,14 @@ public class Playback {
 	
 		
 		
-	public Playback(ArrayList<Integer> coordinates, String userColor, String oppColor)
+	public Playback(ArrayList<Integer> coordinates, String UserColor, String OppColor)
 	{
 		for(int x = 0;x<coordinates.size();x++)
 		{
 			coords.add(coordinates.get(x));
 		}
-		this.userColor = userColor;
-		this.oppColor = oppColor;
+		userColor = UserColor;
+		oppColor = OppColor;
 	}
 	
 	public void setUp(){
@@ -71,13 +71,13 @@ public class Playback {
 		puck.setIcon(puckIcon);
 
 		userPaddle = new Paddle();
-		ImageIcon userPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/redPaddle.png"));
+		ImageIcon userPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/" + userColor.toLowerCase() + "Paddle.png"));
 		userPaddle.setIcon(userPaddleIcon);
 		
 		userPaddle.setBounds(222-userPaddle.getRadius(), 286+200-userPaddle.getRadius(), 50 ,50);
 
 		computerPaddle = new Paddle();
-		ImageIcon opponentPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/bluePaddle.png"));
+		ImageIcon opponentPaddleIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/" + oppColor.toLowerCase() + "Paddle.png"));
 		computerPaddle.setIcon(opponentPaddleIcon);
 		computerPaddle.setBounds(222-computerPaddle.getRadius(), 286-200-computerPaddle.getRadius(), 50, 50);
 
