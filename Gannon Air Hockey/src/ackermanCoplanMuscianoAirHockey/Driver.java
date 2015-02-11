@@ -1,9 +1,14 @@
 package ackermanCoplanMuscianoAirHockey; //COMMENTED
 
 import javax.swing.JOptionPane;
+import java.awt.Color;
 
 public class Driver {
 
+	public static int cpuDifficulty = 1;
+	public static Color hostColor;
+	public static Color joinColor;
+	
 	public static void main(String[] args){
 	
 		
@@ -23,6 +28,8 @@ public class Driver {
 		break;
 		case '4': fourPlayer();
 		break;
+		//case 'S': settings();
+		//break;
 		default: JOptionPane.showMessageDialog(null, "Error with main menu!", "ERROR", JOptionPane.ERROR_MESSAGE);
 		break;
 		}
@@ -36,6 +43,7 @@ public class Driver {
 		/* FEATURES TO ADD
 		 * AARON--add settings menu from main menu instead of having so many JOptionPanes
 		 * AARON--If possible, give options to change background image(put in menu)
+		 * AARON--set max characters for name so its always visible
 		 */
 	}
 	
