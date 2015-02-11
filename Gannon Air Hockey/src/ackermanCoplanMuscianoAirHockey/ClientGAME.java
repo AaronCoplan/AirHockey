@@ -279,7 +279,7 @@ public class ClientGAME {
 			}
 		}
 		
-		Playback p = new Playback(recorder.getLocations(), oppColorChoice, colorChoice);
+		Playback p = new Playback(recorder.getLocations(), colorChoice, oppColorChoice);
 		p.play();
 		
 		JOptionPane.showMessageDialog(null, "Game Over!"); //once someone scores 7, show a JOptionPane that says game over
