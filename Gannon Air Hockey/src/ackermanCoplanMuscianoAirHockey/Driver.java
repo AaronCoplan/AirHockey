@@ -11,35 +11,43 @@ public class Driver {
 	
 	public static void main(String[] args){
 	
-		SettingsWindow sw = new SettingsWindow();
-		MainMenu mainMenu = new MainMenu();
-		
-		while(!mainMenu.isButtonClicked()){
-			try{
-				Thread.sleep(100);
-			}catch(InterruptedException e){}
+		boolean run = true;
+		while(run){
+			
+			SettingsWindow sw = new SettingsWindow();
+			MainMenu mainMenu = new MainMenu();
+			
+			while(!mainMenu.isButtonClicked()){
+				try{
+					Thread.sleep(100);
+				}catch(InterruptedException e){}
+			}
+			
+			switch(mainMenu.getButton())
+			{
+			case '1': singlePlayer();
+			run = false;
+			break;
+			case '2': twoPlayer();
+			run = false;
+			break;
+			case '4': fourPlayer();
+			run = false;
+			break;
+			case 'S': sw.setUp();
+			while(!sw.isDoneClicked()){
+				try{
+					Thread.sleep(100);
+				}catch(InterruptedException e){}
+			}
+			break;
+			default: JOptionPane.showMessageDialog(null, "Error with main menu!", "ERROR", JOptionPane.ERROR_MESSAGE);
+			break;
+			}
+			
+			System.out.println(sw.getSettings());
 		}
 		
-		switch(mainMenu.getButton())
-		{
-		case '1': singlePlayer();
-		break;
-		case '2': twoPlayer();
-		break;
-		case '4': fourPlayer();
-		break;
-		case 'S': sw.setUp();
-		while(!sw.isDoneClicked()){
-			try{
-				Thread.sleep(100);
-			}catch(InterruptedException e){}
-		}
-		break;
-		default: JOptionPane.showMessageDialog(null, "Error with main menu!", "ERROR", JOptionPane.ERROR_MESSAGE);
-		break;
-		}
-		
-		System.out.println(sw.getSettings());
 		System.exit(0);
 		
 		/* FOUR PERSON AND MULTIPLAYER IN GENERAL
