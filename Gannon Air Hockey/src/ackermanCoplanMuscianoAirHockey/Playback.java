@@ -118,7 +118,7 @@ public class Playback {
 		opponentGoal.setBounds(157, 0, 130, 50);
 
 		JLabel userScore = new JLabel("You: ", JLabel.CENTER);
-		userScore.setOpaque(true);
+		userScore.setOpaque(false);
 		userScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
 		switch(userColor)
 		{
@@ -138,7 +138,7 @@ public class Playback {
 		userScore.setBounds(15, 532, 90, 30);
 
 		JLabel opponentScore = new JLabel("Computer: ", JLabel.CENTER);
-		opponentScore.setOpaque(true);
+		opponentScore.setOpaque(false);
 		opponentScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
 		switch(oppColor)
 		{
