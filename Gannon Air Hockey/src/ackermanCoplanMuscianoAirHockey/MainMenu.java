@@ -62,6 +62,11 @@ public class MainMenu {
 	
 	public char getButton(){return button;}
 	public boolean isButtonClicked(){return buttonClicked;}
+	public void reset(){
+		button = '-';
+		buttonClicked = false;
+		menuFrame.setVisible(true);
+	}
 	
 	private class AL implements ActionListener{
 		
