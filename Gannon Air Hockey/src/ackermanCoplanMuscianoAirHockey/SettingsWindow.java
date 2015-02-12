@@ -31,6 +31,7 @@ public class SettingsWindow {
 		colorsLabel.setBounds(0, 0, 150, 100);
 		JRadioButton color1 = new JRadioButton("Red");
 		color1.setActionCommand("Red");
+		color1.setSelected(true);
 		color1.setBounds(150, 0, 70, 100);
 		JRadioButton color2 = new JRadioButton("Blue");
 		color2.setActionCommand("Blue");
