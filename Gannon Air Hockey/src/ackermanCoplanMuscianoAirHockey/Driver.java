@@ -11,7 +11,7 @@ public class Driver {
 	
 	public static void main(String[] args){
 	
-		
+		SettingsWindow sw = new SettingsWindow();
 		MainMenu mainMenu = new MainMenu();
 		
 		while(!mainMenu.isButtonClicked()){
@@ -28,11 +28,19 @@ public class Driver {
 		break;
 		case '4': fourPlayer();
 		break;
-		case 'S': new SettingsWindow();
+		case 'S': sw.setUp();
+		while(!sw.isDoneClicked()){
+			try{
+				Thread.sleep(100);
+			}catch(InterruptedException e){}
+		}
 		break;
 		default: JOptionPane.showMessageDialog(null, "Error with main menu!", "ERROR", JOptionPane.ERROR_MESSAGE);
 		break;
 		}
+		
+		System.out.println(sw.getSettings());
+		System.exit(0);
 		
 		/* FOUR PERSON AND MULTIPLAYER IN GENERAL
 		 * AARON--The entire four player game needs written -- a lot of code can be copied from the two person classes
