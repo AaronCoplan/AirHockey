@@ -167,7 +167,7 @@ public class ComputerGAME {
 		//sets up the wooden board background with its image png
 		JLabel board = new JLabel();
 		board.setBounds(50, 50, 344, 472);
-		ImageIcon boardIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/woodBack.png"));
+		ImageIcon boardIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/whitebackground.png"));
 		board.setIcon(boardIcon);
 		
 		//Add a midline here
