@@ -42,7 +42,20 @@ public class Driver {
 			String settings = sw.getSettings();
 			int index;
 			colorChoice = settings.substring(0, (index = settings.indexOf(" ")));
-			cpuDifficulty = Integer.parseInt(settings.substring(index+1));
+			int cpuValue = Integer.parseInt(settings.substring(index+1));
+			switch(cpuValue)
+			{
+			case 0: cpuDifficulty = 1;
+			break;
+			case 1: cpuDifficulty = 2;
+			break;
+			case 2: cpuDifficulty = 4;
+			break;
+			case 3: cpuDifficulty = 6;
+			break;
+			case 4: cpuDifficulty = 8;
+			break;	
+			}
 			break;
 			default: JOptionPane.showMessageDialog(null, "Error with main menu!", "ERROR", JOptionPane.ERROR_MESSAGE);
 			break;
@@ -68,8 +81,11 @@ public class Driver {
 	}
 	
 	public static void singlePlayer(){
-		
-		new ComputerGAME(colorChoice);
+		if(colorChoice.equals("")){
+			new ComputerGAME(hostColor, cpuDifficulty);
+		}else{
+			new ComputerGAME(colorChoice, cpuDifficulty);
+		}
 		System.exit(0);
 	}
 	
@@ -85,8 +101,6 @@ public class Driver {
 				Thread.sleep(100);
 			}catch(InterruptedException e){}
 		}
-		
-		String colorChoice = twoPlayerMenu.getColorChoice();
 
 		//figures out which button you have pressed and acts accordingly
 
