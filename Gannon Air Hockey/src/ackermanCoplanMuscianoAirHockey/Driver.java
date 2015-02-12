@@ -6,8 +6,8 @@ import java.awt.Color;
 public class Driver {
 
 	public static int cpuDifficulty = 1;
-	public static Color hostColor;
-	public static Color joinColor;
+	public static Color hostColor = Color.red;
+	public static Color joinColor = Color.blue;
 	
 	public static void main(String[] args){
 	
@@ -28,8 +28,8 @@ public class Driver {
 		break;
 		case '4': fourPlayer();
 		break;
-		//case 'S': settings();
-		//break;
+		case 'S': new SettingsWindow();
+		break;
 		default: JOptionPane.showMessageDialog(null, "Error with main menu!", "ERROR", JOptionPane.ERROR_MESSAGE);
 		break;
 		}
