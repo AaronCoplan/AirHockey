@@ -5,9 +5,8 @@ import java.awt.Color;
 
 public class Driver {
 
-	public static int cpuDifficulty = 1;
-	public static Color hostColor = Color.red;
-	public static Color joinColor = Color.blue;
+	public static int cpuDifficulty = 0;
+	public static String hostColor = "Red", joinColor = "Blue", colorChoice = "";
 	
 	public static void main(String[] args){
 	
@@ -40,12 +39,17 @@ public class Driver {
 					Thread.sleep(100);
 				}catch(InterruptedException e){}
 			}
+			String settings = sw.getSettings();
+			int index;
+			colorChoice = settings.substring(0, (index = settings.indexOf(" ")));
+			cpuDifficulty = Integer.parseInt(settings.substring(index+1));
 			break;
 			default: JOptionPane.showMessageDialog(null, "Error with main menu!", "ERROR", JOptionPane.ERROR_MESSAGE);
 			break;
 			}
 			
-			System.out.println(sw.getSettings());
+			System.out.println(colorChoice);
+			System.out.println(cpuDifficulty);
 		}
 		
 		System.exit(0);
@@ -65,8 +69,6 @@ public class Driver {
 	
 	public static void singlePlayer(){
 		
-		String[] colorOptions = {"Red", "Orange", "Green", "Pink", "Purple", "Blue"};
-		String colorChoice = (String)JOptionPane.showInputDialog(null, "Choose a color for your paddle and goal:", "Choose a Color", JOptionPane.QUESTION_MESSAGE, null, colorOptions, colorOptions[0]);
 		new ComputerGAME(colorChoice);
 		System.exit(0);
 	}
