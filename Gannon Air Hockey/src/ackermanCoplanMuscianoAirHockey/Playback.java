@@ -101,7 +101,20 @@ public class Playback {
 
 		JLabel opponentGoal = new JLabel();
 		opponentGoal.setOpaque(true);
-		opponentGoal.setBackground(Color.blue);
+		switch(oppColor)
+		{
+		case "Red": opponentGoal.setBackground(Color.red);
+		break;
+		case "Orange": opponentGoal.setBackground(new Color(234, 47, 1));
+		break;
+		case "Green": opponentGoal.setBackground(Color.green);
+		break;
+		case "Pink": opponentGoal.setBackground(new Color(237, 33, 121));
+		break;	
+		case "Purple": opponentGoal.setBackground(Color.magenta);
+		break;	
+		case "Blue": opponentGoal.setBackground(Color.blue);
+		}
 		opponentGoal.setBounds(157, 0, 130, 50);
 
 		JLabel userScore = new JLabel("You: ", JLabel.CENTER);
@@ -127,8 +140,21 @@ public class Playback {
 		JLabel opponentScore = new JLabel("Computer: ", JLabel.CENTER);
 		opponentScore.setOpaque(true);
 		opponentScore.setFont(new Font("Arial Bold", Font.BOLD, 15));
-		opponentScore.setForeground(Color.blue);
-		opponentScore.setBackground(Color.black);
+		switch(oppColor)
+		{
+		case "Red": opponentScore.setForeground(Color.red);
+		break;
+		case "Orange": opponentScore.setForeground(new Color(234, 47, 1));
+		break;
+		case "Green": opponentScore.setForeground(Color.green);
+		break;
+		case "Pink": opponentScore.setForeground(new Color(237, 33, 121));
+		break;	
+		case "Purple": opponentScore.setForeground(Color.magenta);
+		break;
+		case "Blue": opponentScore.setForeground(Color.blue);
+		break;
+		}
 		opponentScore.setBounds(15, 10, 90, 30);
 
 		JLabel board = new JLabel();
