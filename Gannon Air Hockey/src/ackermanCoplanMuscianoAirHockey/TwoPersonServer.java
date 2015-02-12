@@ -22,7 +22,7 @@ public class TwoPersonServer {
 	}
 	
 	//method to accept a connection from a client
-	public void connect(String colorChoice){
+	public void connect(){
 		
 		try{
 			//opens the server, accepts a client, opens PrintWriter and BufferedReader
@@ -33,8 +33,6 @@ public class TwoPersonServer {
 			br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 			pw.println(yourName);
 			opponentName = br.readLine();
-			pw.println(colorChoice);
-			oppColorChoice = br.readLine();
 			
 		}catch(IOException e){
 			e.printStackTrace();

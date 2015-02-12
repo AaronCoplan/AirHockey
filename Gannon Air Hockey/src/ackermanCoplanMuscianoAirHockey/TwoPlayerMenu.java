@@ -132,7 +132,7 @@ public class TwoPlayerMenu {
 				menuFrame.update(menuFrame.getGraphics());
 				
 				//client connects to server
-				client.connect(colorChoice);
+				client.connect();
 				
 				//if it successfully connects, display the connected screen with opponent info
 				//then waits 5 seconds, closes, the menu, and the driver class starts the game
