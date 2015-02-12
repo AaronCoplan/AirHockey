@@ -44,10 +44,10 @@ public class ComputerGAME {
 	private final double FRICTION = 1.0045, ENERGY_TRANSFER = 1.00023;
 	private final int PADDLE_DIAMETER = 50;
 	
-	public ComputerGAME(String colorChoice){
+	public ComputerGAME(String colorChoice, int difficulty){
 		
 		//recorder = new Recorder("U:\\GAME.txt");
-		ai = new AI(4); //creates a new AI with the difficulty parameter
+		ai = new AI(difficulty); //creates a new AI with the difficulty parameter
 		this.colorChoice = colorChoice;
 		setUp(); //calls the setUp method, which creates and fills the JFrame with its visual components
 	}
