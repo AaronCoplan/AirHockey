@@ -82,8 +82,8 @@ public class TwoPlayerMenu {
 			
 			if(e.getSource().equals(host)){ //if they click host, do the following
 				
-				String yourName = (String)JOptionPane.showInputDialog(null, "Enter your name (10 characters max):", "Name", JOptionPane.QUESTION_MESSAGE);
-				yourName = yourName.substring(0, 10);
+				String yourName = (String)JOptionPane.showInputDialog(null, "Enter your name (15 characters max):", "Name", JOptionPane.QUESTION_MESSAGE);
+				yourName = yourName.substring(0, 15);
 				server = new TwoPersonServer(yourName);
 				
 				//change to connecting screen
@@ -116,8 +116,8 @@ public class TwoPlayerMenu {
 				
 			}else if(e.getSource().equals(join)){ //if they click join, do the following
 				
-				String yourName = (String)JOptionPane.showInputDialog(null, "Enter your name (10 characters max):", "Name", JOptionPane.QUESTION_MESSAGE);
-				yourName = yourName.substring(0, 10);
+				String yourName = (String)JOptionPane.showInputDialog(null, "Enter your name (15 characters max):", "Name", JOptionPane.QUESTION_MESSAGE);
+				yourName = yourName.substring(0, 15);
 				client = new TwoPersonClient(IPs, yourName);
 				
 				//change to connecting screen
