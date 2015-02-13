@@ -159,19 +159,19 @@ public class Playback {
 
 		JLabel board = new JLabel();
 		board.setBounds(50, 50, 344, 472);
-		ImageIcon boardIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/woodBack.png"));
+		ImageIcon boardIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/whitebackground.png"));
 		board.setIcon(boardIcon);
 		
 		//Add a midline here
 		//center y value is 236
 		JLabel midline = new JLabel();
 		midline.setOpaque(true);
-		midline.setBackground(new Color(25,25,25));
+		midline.setBackground(new Color(10,10,10));
 		midline.setBounds(50,276,344,20);
 
 		JLabel walls = new JLabel();
 		walls.setBounds(0, 0, 444, 572);
-		ImageIcon wallsIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/border4.jpg"));
+		ImageIcon wallsIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/border5.jpg"));
 		walls.setIcon(wallsIcon);
 
 		frame.add(puck);
