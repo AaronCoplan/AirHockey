@@ -172,7 +172,7 @@ public class ClientGAME {
 		//represents the wood board background using a png
 		JLabel back = new JLabel();
 		back.setBounds(50, 50, 344, 472);
-		ImageIcon icon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/woodBack.png"));
+		ImageIcon icon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/whitebackground.png"));
 		back.setIcon(icon);
 		
 		//Add a midline here
