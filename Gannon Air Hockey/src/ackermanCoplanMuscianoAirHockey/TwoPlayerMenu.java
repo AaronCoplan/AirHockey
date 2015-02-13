@@ -86,17 +86,7 @@ public class TwoPlayerMenu {
 			
 			if(e.getSource().equals(host)){ //if they click host, do the following
 				
-
-				//gets your name using joptionpane and passes it into the server
-				JFormattedTextField jftf = new JFormattedTextField();
-				MaskFormatter mf = null;
-				try{
-					mf = new MaskFormatter("aaaaaaa");
-				}catch(ParseException e1){
-					e1.printStackTrace();
-				}
-				mf.install(jftf);
-				String yourName = (String)JOptionPane.showInputDialog(mf, "Enter your name:");
+				String yourName = "Ackerman Sux";
 				server = new TwoPersonServer(yourName);
 				
 				//change to connecting screen
@@ -129,16 +119,7 @@ public class TwoPlayerMenu {
 				
 			}else if(e.getSource().equals(join)){ //if they click join, do the following
 				
-				//gets your name using JOptionPane and passes it into the client
-				JFormattedTextField jftf = new JFormattedTextField();
-				MaskFormatter mf = null;
-				try{
-					mf = new MaskFormatter("aaaaaaa");
-				}catch(ParseException e1){
-					e1.printStackTrace();
-				}
-				mf.install(jftf);
-				String yourName = (String)JOptionPane.showInputDialog(mf, "Enter your name:");
+				String yourName = "Ackerman Sux";
 				client = new TwoPersonClient(IPs, yourName);
 				
 				//change to connecting screen
