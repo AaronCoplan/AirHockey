@@ -1,11 +1,10 @@
 package ackermanCoplanMuscianoAirHockey; //COMMENTED
 
 import javax.swing.JOptionPane;
-import java.awt.Color;
 
 public class Driver {
 
-	public static int cpuDifficulty = 0;
+	public static int cpuDifficulty = 2;
 	public static String hostColor = "Red", joinColor = "Blue", colorChoice = "";
 	
 	public static void main(String[] args){
@@ -45,9 +44,9 @@ public class Driver {
 			int cpuValue = Integer.parseInt(settings.substring(index+1));
 			switch(cpuValue)
 			{
-			case 0: cpuDifficulty = 1;
+			case 0: cpuDifficulty = 2;
 			break;
-			case 1: cpuDifficulty = 2;
+			case 1: cpuDifficulty = 3;
 			break;
 			case 2: cpuDifficulty = 4;
 			break;
@@ -106,9 +105,11 @@ public class Driver {
 
 		switch(twoPlayerMenu.getButton())
 		{
-		case 'h': new ServerGAME(twoPlayerMenu.getServer(), colorChoice); //host was selected, it starts the ServerGAME using the server from within the menu class
+		case 'h': if(!colorChoice.equals("")){hostColor = colorChoice;} 
+		new ServerGAME(twoPlayerMenu.getServer(), hostColor); //host was selected, it starts the ServerGAME using the server from within the menu class
 		break;
-		case 'j': new ClientGAME(twoPlayerMenu.getClient(), colorChoice); //join was selected, it starts the ClientGAME code using the already connected client from within the menu class
+		case 'j': if(!colorChoice.equals("")){joinColor = colorChoice;}
+		new ClientGAME(twoPlayerMenu.getClient(), joinColor); //join was selected, it starts the ClientGAME code using the already connected client from within the menu class
 		break;
 		default: JOptionPane.showMessageDialog(null, "Error with two-player menu!", "ERROR", JOptionPane.ERROR_MESSAGE);
 		break;
