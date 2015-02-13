@@ -169,7 +169,7 @@ public class ServerGAME {
 		
 		JLabel back = new JLabel();
 		back.setBounds(50, 50, 344, 472);
-		ImageIcon icon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/woodBack.png"));
+		ImageIcon icon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/whitebackground.png"));
 		back.setIcon(icon);
 		
 		//Add a midline here
@@ -181,7 +181,7 @@ public class ServerGAME {
 		
 		JLabel walls = new JLabel();
 		walls.setBounds(0, 0, 444, 572);
-		ImageIcon wallsIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/border4.jpg"));
+		ImageIcon wallsIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/border5.jpg"));
 		walls.setIcon(wallsIcon);
 		
 		frame.add(puck);
