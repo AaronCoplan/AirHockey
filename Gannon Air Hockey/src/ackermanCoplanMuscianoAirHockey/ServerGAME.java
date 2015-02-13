@@ -181,7 +181,7 @@ public class ServerGAME {
 		
 		JLabel walls = new JLabel();
 		walls.setBounds(0, 0, 444, 572);
-		ImageIcon wallsIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/border4.jpg"));
+		ImageIcon wallsIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/border5.jpg"));
 		walls.setIcon(wallsIcon);
 		
 		frame.add(puck);
