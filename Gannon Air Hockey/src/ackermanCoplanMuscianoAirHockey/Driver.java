@@ -73,7 +73,6 @@ public class Driver {
 		 */
 		
 		/* FEATURES TO ADD
-		 * AARON--add settings menu from main menu instead of having so many JOptionPanes
 		 * AARON--If possible, give options to change background image(put in menu)
 		 * AARON--set max characters for name so its always visible
 		 */
