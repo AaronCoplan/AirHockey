@@ -41,6 +41,7 @@ public class ClientGAME {
 
 		this.colorChoice = colorChoice;
 		this.client = client;
+		oppColorChoice = client.getOpponentColor(colorChoice);
 		setUp();
 	}
 
