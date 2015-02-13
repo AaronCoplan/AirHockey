@@ -50,6 +50,7 @@ public class ServerGAME {
 		
 		this.colorChoice = colorChoice;
 		this.server = server;
+		oppColorChoice = server.getOpponentColor(colorChoice);
 		setUp();
 	}
 	

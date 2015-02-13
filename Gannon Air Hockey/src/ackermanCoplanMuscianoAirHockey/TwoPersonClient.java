@@ -81,4 +81,18 @@ public class TwoPersonClient {
 			return null;
 		}
 	}
+	
+	public String getOpponentColor(String yourColor){
+		
+		try{
+			opponentColor = br.readLine();
+			pw.println(yourColor);
+			return opponentColor;
+		}catch(IOException e){
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Error with PW or BR!", "ERROR", JOptionPane.ERROR_MESSAGE);
+			return null;
+		}
+	}
 }
