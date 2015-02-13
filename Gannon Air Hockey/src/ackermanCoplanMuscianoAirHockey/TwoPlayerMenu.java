@@ -96,7 +96,7 @@ public class TwoPlayerMenu {
 					e1.printStackTrace();
 				}
 				mf.install(jftf);
-				String yourName = (String)JOptionPane.showInputDialog(null, mf);
+				String yourName = (String)JOptionPane.showInputDialog(mf, "Enter your name:");
 				server = new TwoPersonServer(yourName);
 				
 				//change to connecting screen
@@ -138,7 +138,7 @@ public class TwoPlayerMenu {
 					e1.printStackTrace();
 				}
 				mf.install(jftf);
-				String yourName = (String)JOptionPane.showInputDialog(null, mf);
+				String yourName = (String)JOptionPane.showInputDialog(mf, "Enter your name:");
 				client = new TwoPersonClient(IPs, yourName);
 				
 				//change to connecting screen
