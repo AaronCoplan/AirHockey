@@ -8,7 +8,7 @@ public class AI { //WE NEED TO TEACH THE COMPUTER HOW TO BEAT SUPER DEFENSIVE PE
 
 	//instance variables -- mostly used for calculations of predicting puck contact point
 	private final double friction = 1.0045;
-	private final int paddleSTARTY = 286-200-25+10;
+	private final int paddleSTARTY = 91;
 	private double distance, dirx, diry, speed;
 	private int difficulty, count;
 	private double posx, posy, xc, yc;
