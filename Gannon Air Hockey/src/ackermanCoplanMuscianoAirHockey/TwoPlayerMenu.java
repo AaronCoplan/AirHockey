@@ -1,14 +1,17 @@
 package ackermanCoplanMuscianoAirHockey; //COMMENTED
 
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-
-import java.awt.GridLayout;
-import java.awt.Font;
 import java.awt.Color;
-import java.awt.event.ActionListener;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.ParseException;
+
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.text.MaskFormatter;
 
 public class TwoPlayerMenu {
 
@@ -85,7 +88,15 @@ public class TwoPlayerMenu {
 				
 
 				//gets your name using joptionpane and passes it into the server
-				String yourName = JOptionPane.showInputDialog(null, "Enter your name:", "Name", JOptionPane.QUESTION_MESSAGE);
+				JFormattedTextField jftf = new JFormattedTextField();
+				MaskFormatter mf = null;
+				try{
+					mf = new MaskFormatter("aaaaaaa");
+				}catch(ParseException e1){
+					e1.printStackTrace();
+				}
+				mf.install(jftf);
+				String yourName = (String)JOptionPane.showInputDialog(null, mf);
 				server = new TwoPersonServer(yourName);
 				
 				//change to connecting screen
@@ -119,7 +130,15 @@ public class TwoPlayerMenu {
 			}else if(e.getSource().equals(join)){ //if they click join, do the following
 				
 				//gets your name using JOptionPane and passes it into the client
-				String yourName = JOptionPane.showInputDialog(null, "Enter your name:", "Name", JOptionPane.QUESTION_MESSAGE);
+				JFormattedTextField jftf = new JFormattedTextField();
+				MaskFormatter mf = null;
+				try{
+					mf = new MaskFormatter("aaaaaaa");
+				}catch(ParseException e1){
+					e1.printStackTrace();
+				}
+				mf.install(jftf);
+				String yourName = (String)JOptionPane.showInputDialog(null, mf);
 				client = new TwoPersonClient(IPs, yourName);
 				
 				//change to connecting screen
