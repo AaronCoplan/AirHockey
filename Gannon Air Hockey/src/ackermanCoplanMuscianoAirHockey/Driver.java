@@ -60,8 +60,6 @@ public class Driver {
 			break;
 			}
 			
-			System.out.println(colorChoice);
-			System.out.println(cpuDifficulty);
 		}
 		
 		System.exit(0);

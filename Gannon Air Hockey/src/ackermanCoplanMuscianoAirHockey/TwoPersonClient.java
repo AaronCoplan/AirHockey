@@ -44,15 +44,15 @@ public class TwoPersonClient {
 					opponentName = br.readLine();
 					pw.println(yourName);
 					this.connected = true;
-					System.out.println("Successfully connected to: " + IPs[x]);
+					//System.out.println("Successfully connected to: " + IPs[x]);
 					break;
 				}else{
-					System.out.println("Could not connect to: " + IPs[x]);
+					//System.out.println("Could not connect to: " + IPs[x]);
 				}
 			}catch(ConnectException e){
-				System.out.println("Could not connect to: " + IPs[x]);
+				//System.out.println("Could not connect to: " + IPs[x]);
 			}catch(IOException e){
-				System.out.println("Could not connect to: " + IPs[x]);
+				//System.out.println("Could not connect to: " + IPs[x]);
 			}
 		}
 	}
