@@ -33,6 +33,7 @@ public class TwoPersonClient {
 		
 		//tries each ip in the array using the for loop using a 2.5 second timeout
 		//if an ip works, it breaks the for loop, and sets the connected boolean to true
+		int cycle = 0;
 		for(int x = 0; x < IPs.length; x++){
 			try{
 				socket = new Socket();
@@ -54,6 +55,16 @@ public class TwoPersonClient {
 			}catch(IOException e){
 				//System.out.println("Could not connect to: " + IPs[x]);
 			}
+			if(x==IPs.length-1)
+			{
+				if(cycle == 0)
+				{
+					x = 0;
+					cycle = 1;
+				}
+				
+			}
+			
 			
 		}
 	}
