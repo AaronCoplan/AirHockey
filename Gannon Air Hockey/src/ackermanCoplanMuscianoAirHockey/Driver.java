@@ -59,7 +59,6 @@ public class Driver {
 			default: JOptionPane.showMessageDialog(null, "Error with main menu!", "ERROR", JOptionPane.ERROR_MESSAGE);
 			break;
 			}
-			
 		}
 		
 		System.exit(0);
