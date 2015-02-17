@@ -54,6 +54,7 @@ public class TwoPersonClient {
 			}catch(IOException e){
 				//System.out.println("Could not connect to: " + IPs[x]);
 			}
+			
 		}
 	}
 	
