@@ -73,6 +73,7 @@ public class Driver {
 		/* FEATURES TO ADD
 		 * AARON--If possible, give options to change background image(put in menu)
 		 * AARON--set max characters for name so its always visible
+		 * play with goal values for when it is a goal
 		 */
 	}
 	
