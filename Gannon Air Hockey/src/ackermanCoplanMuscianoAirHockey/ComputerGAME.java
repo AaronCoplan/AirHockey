@@ -25,7 +25,6 @@ public class ComputerGAME {
 	private Puck puck;
 	private JLabel userGoal, opponentGoal, userScore, opponentScore;
 	private Paddle computerPaddle, userPaddle;
-	private JLabel attackmark;
 	
 	//Global variables representing locations, speeds, vectors, and scores
 	private double puckSpeed, puckVX, puckVY, puckDIRX, puckDIRY;
@@ -185,11 +184,6 @@ public class ComputerGAME {
 		ImageIcon wallsIcon = new ImageIcon(this.getClass().getClassLoader().getResource("ackermanCoplanMuscianoAirHockey/border5.jpg"));
 		walls.setIcon(wallsIcon);
 		
-		//adds the indicator in the upper right corner so you can see what the computer is doing(for testing purposes only)
-		this.attackmark = new JLabel("", JLabel.CENTER);
-		attackmark.setBounds(344, 0, 100, 50);
-		attackmark.setOpaque(true);
-		
 		//adds all the components to the frame, finishes setting properties, and sets it visible
 		frame.add(puck);
 		frame.add(userPaddle);
@@ -198,7 +192,6 @@ public class ComputerGAME {
 		frame.add(opponentGoal);
 		frame.add(userScore);
 		frame.add(opponentScore);
-		frame.add(attackmark);
 		frame.add(midline);
 		frame.add(board);
 		frame.add(walls);
@@ -223,14 +216,12 @@ public class ComputerGAME {
 		Recorder recorder = new Recorder(" ");
 		while(yourNumGoals < 7 && oppNumGoals < 7){ //the game runs until someone reaches seven goals
 			
-			ai.move(computerPaddle, puck, puckDIRX, puckDIRY, puckSpeed, attackmark); //ai moves the computer paddle
+			ai.move(computerPaddle, puck, puckDIRX, puckDIRY, puckSpeed); //ai moves the computer paddle
 			
 			//checks if someone scores and acts accordingly
 			if(checkIfUserGoal()){
-				System.out.println("User Goal");
 				goal(opponentGoal);
 			}else if(checkIfOpponentGoal()){
-				System.out.println("Opponent Goal");
 				goal(userGoal);
 			}
 			

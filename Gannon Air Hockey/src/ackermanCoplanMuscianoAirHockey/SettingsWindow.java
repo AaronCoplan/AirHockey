@@ -33,21 +33,27 @@ public class SettingsWindow {
 		color1.setActionCommand("Red");
 		color1.setSelected(true);
 		color1.setBounds(150, 0, 70, 100);
+		color1.setBackground(Color.cyan);
 		JRadioButton color2 = new JRadioButton("Blue");
 		color2.setActionCommand("Blue");
 		color2.setBounds(220, 0, 70, 100);
+		color2.setBackground(Color.cyan);
 		JRadioButton color3 = new JRadioButton("Green");
 		color3.setActionCommand("Green");
 		color3.setBounds(290, 0, 70, 100);
+		color3.setBackground(Color.cyan);
 		JRadioButton color4 = new JRadioButton("Purple");
 		color4.setActionCommand("Purple");
 		color4.setBounds(360, 0, 70, 100);
+		color4.setBackground(Color.cyan);
 		JRadioButton color5 = new JRadioButton("Pink");
 		color5.setActionCommand("Pink");
 		color5.setBounds(430, 0, 70, 100);
+		color5.setBackground(Color.cyan);
 		JRadioButton color6 = new JRadioButton("Orange");
 		color6.setActionCommand("Orange");
 		color6.setBounds(500, 0, 70, 100);
+		color6.setBackground(Color.cyan);
 		colorsGroup = new ButtonGroup();
 		colorsGroup.add(color1);
 		colorsGroup.add(color2);
@@ -62,6 +68,7 @@ public class SettingsWindow {
 		panel1.add(color4);
 		panel1.add(color5);
 		panel1.add(color6);
+		panel1.setBackground(Color.cyan);
 		
 		JPanel panel2 = new JPanel();
 		panel2.setLayout(new GridLayout(2, 0));
@@ -79,13 +86,18 @@ public class SettingsWindow {
 		table.put(4, new JLabel("God"));
 		slider.setLabelTable(table);
 		slider.setPaintLabels(true);
+		slider.setBackground(Color.pink);
 		panel2.add(sliderLabel);
 		panel2.add(slider);
+		panel2.setBackground(Color.pink);
 		
 		JPanel panel3 = new JPanel();
+		panel3.setLayout(new BorderLayout());
 		JButton doneButton = new JButton("Save Settings");
+		doneButton.setFont(new Font("Arial Bold", Font.BOLD, 40));
 		doneButton.addActionListener(new AL());
-		panel3.add(doneButton);
+		panel3.add(doneButton, BorderLayout.CENTER);
+		doneButton.setBackground(Color.cyan);
 		
 		frame.add(panel1);
 		frame.add(panel2);

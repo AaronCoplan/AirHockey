@@ -62,9 +62,7 @@ public class ServerGAME {
 		
 		try{
 			this.robot = new Robot();
-		}catch(AWTException e){
-			System.out.println("Could not instantiate robot...");
-		}
+		}catch(AWTException e){}
 		
 		frame = new JFrame("Air Hockey");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

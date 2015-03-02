@@ -12,7 +12,7 @@ public class MainMenu {
 
 	private Font f;
 	private JFrame menuFrame;
-	private JButton singlePlayer, twoPlayer, fourPlayer, settings;
+	private JButton singlePlayer, twoPlayer, settings;
 	private boolean buttonClicked = false;
 	private char button = '-';
 	
@@ -29,7 +29,7 @@ public class MainMenu {
 		menuFrame = new JFrame();
 		menuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		menuFrame.setResizable(false);
-		menuFrame.setLayout(new GridLayout(4, 0));
+		menuFrame.setLayout(new GridLayout(3, 0));
 		
 		singlePlayer = new JButton("Single Player");
 		singlePlayer.setBackground(Color.cyan);
@@ -41,19 +41,13 @@ public class MainMenu {
 		twoPlayer.setFont(f);
 		twoPlayer.addActionListener(actionListener);
 		
-		fourPlayer = new JButton("Local Four Player");
-		fourPlayer.setBackground(Color.cyan);
-		fourPlayer.setFont(f);
-		fourPlayer.addActionListener(actionListener);
-		
 		settings = new JButton("Settings");
-		settings.setBackground(Color.pink);
+		settings.setBackground(Color.cyan);
 		settings.setFont(f);
 		settings.addActionListener(actionListener);
 		
 		menuFrame.add(singlePlayer);
 		menuFrame.add(twoPlayer);
-		menuFrame.add(fourPlayer);
 		menuFrame.add(settings);
 		menuFrame.setSize(600, 400);
 		menuFrame.setLocationRelativeTo(null);
@@ -80,10 +74,6 @@ public class MainMenu {
 				menuFrame.setVisible(false);
 				buttonClicked = true;
 				button = '2';
-			}else if(e.getSource().equals(fourPlayer)){
-				menuFrame.setVisible(false);
-				buttonClicked = true;
-				button = '4';
 			}else if(e.getSource().equals(settings)){
 				menuFrame.setVisible(false);
 				buttonClicked = true;

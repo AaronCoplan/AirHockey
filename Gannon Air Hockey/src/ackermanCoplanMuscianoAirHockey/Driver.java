@@ -29,9 +29,6 @@ public class Driver {
 			case '2': twoPlayer();
 			run = false;
 			break;
-			case '4': fourPlayer();
-			run = false;
-			break;
 			case 'S': sw.setUp();
 			while(!sw.isDoneClicked()){
 				try{
@@ -112,29 +109,6 @@ public class Driver {
 		default: JOptionPane.showMessageDialog(null, "Error with two-player menu!", "ERROR", JOptionPane.ERROR_MESSAGE);
 		break;
 		}
-		System.exit(0);
-	}
-	
-	public static void fourPlayer(){
-		
-		FourPlayerMenu fourPlayerMenu = new FourPlayerMenu();
-		
-		while(!fourPlayerMenu.isButtonClicked()){
-			try{
-				Thread.sleep(100);
-			}catch(InterruptedException e){}
-		}
-		
-		switch(fourPlayerMenu.getButton())
-		{
-		case 'h': new FourPersonServerGAME(fourPlayerMenu.getServer());
-		break;
-		case 'j': new FourPersonClientGAME(fourPlayerMenu.getClient(), fourPlayerMenu.getClient().getPlayerNumber());
-		break;
-		default: JOptionPane.showMessageDialog(null, "Error with four-player menu!", "ERROR", JOptionPane.ERROR_MESSAGE);
-		break;
-		}
-		
 		System.exit(0);
 	}
 }
