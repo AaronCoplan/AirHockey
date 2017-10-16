@@ -1,15 +1,14 @@
 package ackermanCoplanMuscianoAirHockey; //COMMENTED
 
-import java.net.Socket;
+import javax.swing.*;
 import java.io.BufferedReader;
-import java.io.PrintWriter;
-import java.net.SocketAddress;
-import java.net.InetSocketAddress;
-import java.io.InputStreamReader;
-import java.net.ConnectException;
 import java.io.IOException;
-
-import javax.swing.JOptionPane;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ConnectException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
 
 public class TwoPersonClient {
 
@@ -50,7 +49,8 @@ public class TwoPersonClient {
 				}
 			}catch(ConnectException e){	
 			}catch(IOException e){}
-			
+
+			// this essentially makes it repeat the loop at most twice (each IP will be tried <= 2x)
 			if(x==IPs.length-1)
 			{
 				if(cycle == 0)

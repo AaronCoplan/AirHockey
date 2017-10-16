@@ -6,8 +6,12 @@ public class Driver {
 
 	public static int cpuDifficulty = 2;
 	public static String hostColor = "Red", joinColor = "Blue", colorChoice = "";
+	public static String opponentIp = null;
 	
 	public static void main(String[] args){
+		if(args.length == 1){
+			opponentIp = args[0];
+		}
 	
 		boolean run = true;
 		while(run){
@@ -90,7 +94,7 @@ public class Driver {
 
 		//waits until you have clicked either join or host and been connected
 		while(!twoPlayerMenu.isButtonClicked()){
-			//thread.sleep saves processor space
+			//thread.sleep saves processor usage and prevents this loop from becoming blocked
 			try{
 				Thread.sleep(100);
 			}catch(InterruptedException e){}
